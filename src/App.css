@@ -1,0 +1,61 @@
+/*------------ SHARED TITLE STYLES ------------ */
+
+.services__title,
+.bedrifter__title,
+.about__title,
+.cta__title {
+  font-size: 60px;
+  line-height: 1.2;
+  padding-block: 2rem;
+}
+
+@media (max-width: 770px) {
+  .services__title,
+  .bedrifter__title,
+  .about__title,
+  .cta__title {
+    font-size: 42px;
+    padding-block: 20px;
+  }
+}
+
+
+/*------------ HERO SECTION ------------ */
+
+.site-header{
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  height: 120px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-inline: 8%;
+  white-space: nowrap;
+  color: var(--text-on-dark);
+  gap: 32px;
+}
+
+
+.site-header__link {
+    color: var(--text-on-dark);
+    font-size: 24px;
+    position: relative;
+    text-decoration: none;
+}
+
+
+
+.site-header__nav{
+  display: flex;
+  width: 100%;
+  max-width: 700px;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+
+
+
