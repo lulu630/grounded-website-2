@@ -43,15 +43,7 @@ function Navbar() {
                     >
                         Book samtale
                     </a>
-
-
-
-
-
-
-                    
                 </nav>
-
         </header>
     )
 }

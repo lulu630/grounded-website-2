@@ -1,3 +1,12 @@
+/* Notes ------------ 
+
+
+
+------------ */
+
+
+
+
 /*------------ SHARED TITLE STYLES ------------ */
 
 .services__title,
@@ -34,28 +43,99 @@
   justify-content: center;
   padding-inline: 8%;
   white-space: nowrap;
-  color: var(--text-on-dark);
+  color: var(--text);
   gap: 32px;
 }
 
 
 .site-header__link {
-    color: var(--text-on-dark);
+    color: var(--text);
     font-size: 24px;
     position: relative;
     text-decoration: none;
 }
 
 
-
 .site-header__nav{
   display: flex;
+  align-items: center;
   width: 100%;
   max-width: 700px;
   justify-content: space-between;
   gap: 1.5rem;
+
 }
 
+
+.site-header__btn {
+  border: 1px solid var(--text);
+  padding: 10px 20px;
+  border-radius: 10px;
+}
+
+
+.hero {
+  min-height: 100vh;
+  gap: 30px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+
+.hero-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(247 240 228 / 24%);
+  z-index: 1;
+}
+
+
+.hero__content {
+  position: relative;
+  z-index: 2;
+  color: var(--text);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  gap: clamp(14px, 2vw, 28px);
+  text-align: center;
+  padding-top: clamp(24px, 25vw, 255px);
+
+}
+
+
+.hero__logo {
+  text-transform: uppercase;
+  font-size: 120px;
+  font-family: "Moniqa";
+  letter-spacing: 32%;
+  
+}
+
+
+.hero__text {
+  font-family: "Maitree";
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 18px;
+  letter-spacing: 25%;
+
+
+}
 
 
 

@@ -4,7 +4,7 @@
 // import Bedrifter from "./Components/Bedrifter"
 // import Services from "./Components/Services"
 // import Intro from "./Components/Intro"
-// import Hero from "./Components/Hero"
+import Hero from "./Components/Hero"
 import Navbar from "./Components/Navbar"
 import "./App.css"
 
@@ -13,15 +13,15 @@ function App() {
   return (
     <>
         <Navbar />
-      {/* <main>
+      <main>
         <Hero />
-        <Intro />
+        {/* <Intro />
         <Services />
         <Bedrifter />
         <About />
-        <Cta />
+        <Cta /> */}
       </main>
-      <Footer /> */}
+      {/* <Footer /> */}
     </>
   )
 }
