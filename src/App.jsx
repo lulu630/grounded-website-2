@@ -2,7 +2,7 @@
 // import Cta from "./Components/Cta"
 // import About from "./Components/About"
 // import Bedrifter from "./Components/Bedrifter"
-// import Services from "./Components/Services"
+import Services from "./Components/Services"
 import Intro from "./Components/Intro"
 import Hero from "./Components/Hero"
 import Navbar from "./Components/Navbar"
@@ -16,8 +16,8 @@ function App() {
       <main>
         <Hero />
         <Intro />
-        {/* <Services />
-        <Bedrifter />
+        <Services />
+        {/* <Bedrifter />
         <About />
         <Cta /> */}
       </main>

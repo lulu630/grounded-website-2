@@ -300,3 +300,116 @@
     position: static;
   }
 }
+
+/*------------ SERVICES SECTION ------------ */
+
+.services {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 10%;
+  padding-inline: 7.4% 4.8%;
+  background: var(--bg);
+  color: var(--text);
+}
+
+.services__copy {
+  min-width: 0;
+}
+
+.services__card {
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  padding-block: 70px;
+}
+
+.services__heading {
+  color: var(--titles);
+  font-family: "Moniqa.otf", serif;
+  font-size: clamp(44px, 4.5vw, 68px);
+  font-weight: 400;
+  line-height: 1.15;
+  letter-spacing: 0.04em;
+  margin-bottom: clamp(30px, 4vw, 70px);
+}
+
+.services__description {
+  font-size: clamp(19px, 1.8vw, 28px);
+  line-height: 1.8;
+  max-width: 540px;
+}
+
+.services__link {
+  display: inline-block;
+  margin-top: clamp(30px, 4.5vw, 80px);
+  color: inherit;
+  font-size: clamp(18px, 1.5vw, 23px);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.services__link:hover {
+  color: var(--accent);
+}
+
+/* One sticky oval window shared by all three services. */
+.services__visual {
+  position: sticky;
+  top: 0;
+  align-self: start;
+  height: 100svh;
+  display: flex;
+  align-items: center;
+}
+
+.services__window {
+  position: relative;
+  width: 100%;
+  height: min(74svh, 820px);
+  border-radius: 32% / 25%;
+  overflow: hidden;
+}
+
+.services__window-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.services__window-image:not(:first-child) {
+  visibility: hidden;
+}
+
+.services__mobile-image {
+  display: none;
+}
+
+@media (max-width: 770px) {
+  .services {
+    display: block;
+    padding-inline: 7%;
+  }
+
+  .services__card {
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: center;
+    gap: 36px;
+    padding-block: 50px;
+  }
+
+  .services__visual {
+    display: none;
+  }
+
+  .services__mobile-image {
+    display: block;
+    width: 100%;
+    height: 50svh;
+    object-fit: cover;
+    border-radius: 32% / 25%;
+  }
+}
