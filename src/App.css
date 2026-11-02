@@ -227,3 +227,76 @@
     display: none;
   }
 }
+
+/*------------ PRESTASJON / PAUSE ------------ */
+
+.intro__pause-stage {
+  position: relative;
+  min-height: 100svh;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  overflow: clip;
+}
+
+.intro__words {
+  display: flex;
+  align-items: baseline;
+  gap: 0;
+  white-space: nowrap;
+  font-size: clamp(30px, 7.5vw, 108px);
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.intro__word {
+  display: inline-block;
+}
+
+.intro__message {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(28px, 4vw, 60px);
+  padding: 40px 2%;
+}
+
+.intro__message-heading {
+  font-size: clamp(28px, 4.2vw, 60px);
+  font-weight: 400;
+  line-height: 1.3;
+}
+
+.intro__message-text {
+  max-width: 1050px;
+  font-size: clamp(20px, 2.6vw, 38px);
+  line-height: 1.7;
+}
+
+.intro__programs-link {
+  color: inherit;
+  font-size: clamp(20px, 2.6vw, 38px);
+  font-weight: 700;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.intro__programs-link:hover {
+  color: var(--accent);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .intro__pause-stage {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 60px;
+  }
+
+  .intro__message {
+    position: static;
+  }
+}
