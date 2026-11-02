@@ -1,4 +1,4 @@
-import heroVideo from "../assets/videos/hero.mp4"
+import heroVideo from "../assets/videos/hero.mov"
 
 function Hero() {
     return(
@@ -17,8 +17,12 @@ function Hero() {
                     Grounded
                 </h1>
                 <p className="hero__text">
-                    Mindfulnesscoaching
+                    Mindfulnesscoaching<br />
+                    for forretningsfolk
                 </p>
+                <a className="hero__button" href="#book-samtale">
+                    Book samtale
+                </a>
             </div>
 
         </section>
