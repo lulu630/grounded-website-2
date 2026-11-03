@@ -1,5 +1,5 @@
 /* Notes ------------ 
-1. 
+1. parallax footer-logo?
 2. 
 3.
 
@@ -16,6 +16,7 @@
   line-height: 1.2;
   padding-block: 2rem;
 }
+
 
 @media (max-width: 770px) {
   .services__title,
@@ -71,9 +72,11 @@
   transition: color 0.2s ease;
 }
 
+
 .site-header__link:hover {
   color: var(--accent);
 }
+
 
 .hero__button {
   display: inline-flex;
@@ -89,6 +92,7 @@
   text-decoration: none;
   transition: border-color 0.2s ease;
 }
+
 
 .hero__button:hover {
   border-color: var(--accent);
@@ -139,6 +143,7 @@
   padding: 110px 4% 40px 0;
 }
 
+
 .hero__logo {
   text-transform: uppercase;
   font-size: clamp(64px, 8.35vw, 120px);
@@ -148,6 +153,7 @@
   letter-spacing: 0.08em;
 }
 
+
 .hero__text {
   font-family: "Lunea", sans-serif;
   font-weight: 400;
@@ -155,6 +161,7 @@
   letter-spacing: 0.08em;
   line-height: 1.65;
 }
+
 
 @media (max-width: 770px) {
   .site-header {
@@ -184,6 +191,7 @@
   text-align: center;
 }
 
+
 .intro__block {
   min-height: 70vh;
   display: flex;
@@ -191,10 +199,12 @@
   justify-content: center;
 }
 
+
 .intro__text {
   margin: 0;
   max-width: 1320px;
 }
+
 
 .intro__opening {
   font-size: clamp(32px, 6.2vw, 90px);
@@ -202,17 +212,20 @@
   line-height: 1.25;
 }
 
+
 .intro__heading {
   font-size: clamp(42px, 8.3vw, 120px);
   font-weight: 700;
   line-height: 1.15;
 }
 
+
 .intro__description {
   max-width: 1200px;
   font-size: clamp(21px, 3.2vw, 46px);
   line-height: 1.65;
 }
+
 
 @media (max-width: 770px) {
   .intro {
@@ -228,7 +241,8 @@
   }
 }
 
-/*------------ PRESTASJON / PAUSE ------------ */
+
+/* prestasjon / pause */
 
 .intro__pause-stage {
   position: relative;
@@ -238,6 +252,7 @@
   overflow: hidden;
   overflow: clip;
 }
+
 
 .intro__words {
   display: flex;
@@ -249,9 +264,11 @@
   line-height: 1.2;
 }
 
+
 .intro__word {
   display: inline-block;
 }
+
 
 .intro__message {
   position: absolute;
@@ -264,17 +281,20 @@
   padding: 40px 2%;
 }
 
+
 .intro__message-heading {
   font-size: clamp(28px, 4.2vw, 60px);
   font-weight: 400;
   line-height: 1.3;
 }
 
+
 .intro__message-text {
   max-width: 1050px;
   font-size: clamp(20px, 2.6vw, 38px);
   line-height: 1.7;
 }
+
 
 .intro__programs-link {
   color: inherit;
@@ -284,9 +304,11 @@
   transition: color 0.2s ease;
 }
 
+
 .intro__programs-link:hover {
   color: var(--accent);
 }
+
 
 @media (prefers-reduced-motion: reduce) {
   .intro__pause-stage {
@@ -313,9 +335,11 @@
   color: var(--text);
 }
 
+
 .services__copy {
   min-width: 0;
 }
+
 
 .services__card {
   min-height: 100svh;
@@ -323,6 +347,7 @@
   align-items: center;
   padding-block: 70px;
 }
+
 
 .services__heading {
   color: var(--titles);
@@ -334,11 +359,13 @@
   margin-bottom: clamp(30px, 4vw, 70px);
 }
 
+
 .services__description {
   font-size: clamp(19px, 1.8vw, 28px);
   line-height: 1.8;
   max-width: 540px;
 }
+
 
 .services__link {
   display: inline-block;
@@ -349,11 +376,13 @@
   transition: color 0.2s ease;
 }
 
+
 .services__link:hover {
   color: var(--accent);
 }
 
-/* One sticky oval window shared by all three services. */
+
+/* Shared sticky oval window */
 .services__visual {
   position: sticky;
   top: 0;
@@ -363,6 +392,7 @@
   align-items: center;
 }
 
+
 .services__window {
   position: relative;
   width: 100%;
@@ -370,6 +400,7 @@
   border-radius: 32% / 25%;
   overflow: hidden;
 }
+
 
 .services__window-image {
   position: absolute;
@@ -379,13 +410,16 @@
   object-fit: cover;
 }
 
+
 .services__window-image:not(:first-child) {
   visibility: hidden;
 }
 
+
 .services__mobile-image {
   display: none;
 }
+
 
 @media (max-width: 770px) {
   .services {
@@ -413,3 +447,87 @@
     border-radius: 32% / 25%;
   }
 }
+
+
+
+/*------------ BEDRIFTER SECTION ------------*/
+
+.bedrifter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  padding-block: 70px;
+
+}
+
+
+.bedrifter h2 {
+  color: var(--titles);
+  font-family: "Moniqa.otf", serif;
+  font-size: clamp(44px, 6vw, 98px);
+  font-weight: 400;
+  line-height: 1.15;
+  letter-spacing: 0.04em;
+  margin-bottom: clamp(30px, 4vw, 70px);
+  text-transform:uppercase ;
+}
+
+
+.bedrifter__window {
+  position: relative;
+  width: 35%;
+  height: min(58svh, 710px);
+  border-radius: 35% / 28%;
+  overflow: hidden;
+}
+
+
+.bedrifter__img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+.bedrifter__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+
+}
+
+.bedrifter__content p {
+  font-size: clamp(19px, 3.5vw, 38px);
+  line-height: 1.8;
+  max-width: 560px;
+  color: var(--text-on-dark);
+
+
+}
+
+
+.bedrifter__link {
+  display: inline-block;
+  margin-top: clamp(30px, 4.5vw, 80px);
+  color: inherit;
+  font-size: clamp(18px, 1.5vw, 23px);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+
+.bedrifter__link:hover {
+  color: var(--accent);
+}
+
+
+
+
+
+
