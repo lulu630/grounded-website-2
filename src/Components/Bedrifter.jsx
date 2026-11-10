@@ -1,23 +1,86 @@
 import bedrifter from "../assets/images/bedrifter.jpg"
+import { useRef } from "react"
+import gsap from "gsap"
+import { ScrollTrigger } from "gsap/ScrollTrigger"
+import { useGSAP} from "@gsap/react"
+
+gsap.registerPlugin(ScrollTrigger, useGSAP)
 
 
+function Bedrifter () {
+    const sectionRef = useRef(null);
+    const imageRef = useRef(null);
 
-function Bedrifter() {
-    return (
+    useGSAP(() => {
 
-        <section className="bedrifter">
-            <h2>
-                For bedrifter
-            </h2>
+        const timeline = gsap.timeline({
+
+            scrollTrigger: {
+                trigger: sectionRef.current,
+                start: "top top",
+                end: "+=150%",
+                scrub: 1,
+                pin: true,
+            },
+        });
+
+        timeline.to(imageRef.current, {
+            width: "100%",
+            height: "100%",
+            borderRadius: 0,
+            duration: 1,
+            ease: "none",
+        }, 0);
+
+        timeline.to(".bedrifter__title", {
+            y: () => -window.innerHeight,
+            duration: 1,
+            ease: "none",
+        }, 0);
+
+
+        timeline.fromTo(".bedrifter__content", {
+            autoAlpha: 0,
+            y: 80,
+        }, {
+            autoAlpha: 1,
+            y: 0,
+            duration: 0.5,
+            ease: "none",
+        }, 0.5);
+
+
+        timeline.to(".bedrifter__overlay", {
+            opacity: 0.5,
+            duration: 0.5,
+            ease: "none",
+        }, 0.5);
+
+
+    }, { scope: sectionRef});
+
+
+    return (   
+        <section
+        className="bedrifter"
+        ref={sectionRef}>
+
+            <h2 className="bedrifter__title">For bedrifter</h2>
+
             
-                
-            <div className="bedrifter__window">
-             <img
-             className="bedrifter__img"
-             src={bedrifter} 
-             alt="People sitting in a conference room"/>
+            <div className="img__window"
+            ref={imageRef}>
+                <img 
+                className="bedrifter__img"
+                src={bedrifter} 
+                alt="People sitting in a conference room"/>
+
+                <div
+                className="bedrifter__overlay"
+                aria-hidden="true">
+                </div>
             </div>
-            
+
 
             <div className="bedrifter__content">
                 <p>
@@ -31,12 +94,9 @@ function Bedrifter() {
                     >
                     Les mer om bedriftsløsninger
                 </a>
-            </div>
+          </div>
 
         </section>
-
-      
-
         
     )
 }

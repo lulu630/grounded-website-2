@@ -1,11 +1,11 @@
-import { useLayoutEffect, useRef } from "react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import coachingImage from "../assets/images/1-1-coachig.png";
-import groundedImage from "../assets/images/grounded-reset.jpg";
-import executiveImage from "../assets/images/executive-reset.png";
+import { useLayoutEffect, useRef } from "react"
+import { gsap } from "gsap"
+import { ScrollTrigger } from "gsap/ScrollTrigger"
+import coachingImage from "../assets/images/1-1-coaching.jpg"
+import groundedImage from "../assets/images/grounded-reset.jpg"
+import executiveImage from "../assets/images/executive-reset.jpg"
 
-gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(ScrollTrigger)
 
 const services = [
   {
@@ -62,7 +62,7 @@ function Services() {
         if (index === 0) return;
         ScrollTrigger.create({
           trigger: card,
-          start: "top 10%",
+          start: "top 20%",
           onEnter: () => showImage(index),
           onLeaveBack: () => showImage(index - 1),
         });
@@ -93,7 +93,7 @@ function Services() {
             <div className="services__card-content">
               <h2 className="services__heading" id={`service-title-${index}`}>{service.title}</h2>
               <p className="services__description">{service.description}</p>
-              <a className="services__link" href="#kontakt">Les om programmet</a>
+              <a className="services__link" href="#kontakt">Finn ut mer →</a>
             </div>
             <img className="services__mobile-image" src={service.image} alt={service.alt} loading="lazy" />
           </article>

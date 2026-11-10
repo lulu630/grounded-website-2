@@ -1,3 +1,4 @@
+import introImage from "../assets/images/intro.jpg";
 import { useLayoutEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -88,12 +89,41 @@ function Intro() {
 
   return (
     <section className="intro" ref={sectionRef} aria-label="Fra arbeidsdag til pause">
-      <div className="intro__block">
-        <p className="intro__text intro__opening">Arbeidsdagen kan være over.</p>
+        <svg width="0" height="0" aria-hidden="true">
+          <defs>
+            <clipPath id="intro-oval" clipPathUnits="objectBoundingBox">
+              <ellipse
+                cx="415.568"
+                cy="554.034"
+                rx="309.17"
+                ry="498.5145"
+                transform="scale(0.001204687 0.000803223) rotate(43.993 415.568 554.034)"
+                />
+            </clipPath>
+          </defs>
+        </svg>
+      
+      
+      <div className="intro__scene">
+
+        <p className="intro__scene-opening">Arbeidsdagen <br /> kan være over.</p>
+
+      <div className="intro__window">
+        <div className="intro__photo">
+          <img 
+          className="intro__image"
+          src={introImage}
+          alt="En person sitter med hodet hvilende i armene"
+          />
+        </div>
       </div>
-      <div className="intro__block">
-        <h2 className="intro__text intro__heading">Men hodet fortsetter.</h2>
+
+        <p className="intro__scene-ending">
+          Men hodet <br /> fortsetter.</p>
+      
       </div>
+
+      
       <div className="intro__block intro__block--description">
         <p className="intro__text intro__description">
           Beslutninger og ansvar blir ofte med videre inn i kvelden.
@@ -115,6 +145,7 @@ function Intro() {
           </p>
           <a className="intro__programs-link" href="#tjenester">Utforsk programmene ↓</a>
         </div>
+      
       </div>
     </section>
   );
