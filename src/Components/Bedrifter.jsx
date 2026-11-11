@@ -18,7 +18,7 @@ function Bedrifter () {
             scrollTrigger: {
                 trigger: sectionRef.current,
                 start: "top top",
-                end: "+=150%",
+                end: "+=210%",
                 scrub: 1,
                 pin: true,
             },
@@ -55,6 +55,13 @@ function Bedrifter () {
             duration: 0.5,
             ease: "none",
         }, 0.5);
+
+
+        // Hold the completed scene before releasing the pinned section.
+        timeline.to({}, {
+            duration: 0.4,
+        
+        });
 
 
     }, { scope: sectionRef});

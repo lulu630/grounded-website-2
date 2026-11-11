@@ -12,16 +12,68 @@ function Intro() {
     const media = gsap.matchMedia();
 
     media.add("(prefers-reduced-motion: no-preference)", () => {
-      // === 1. Reveal and gradually fade the introductory text blocks ===
+      const scene = sectionRef.current.querySelector(".intro__scene");
       const blocks = sectionRef.current.querySelectorAll(".intro__block");
 
+
+      // Photo parallax effect
+      gsap.to(scene.querySelector(".intro__image"), {
+        yPercent: 10,
+        ease: "none",
+        scrollTrigger: {
+          trigger: scene,
+          start: "top bottom",
+          end: "bottom top",
+          scrub: 1,
+        },
+      });
+
+
+      gsap.to(scene.querySelector(".intro__scene-ending"), {
+        y: -100,
+        ease: "none",
+        scrollTrigger: {
+          trigger: scene,
+          start: "top bottom",
+          end:"bottom top",
+          scrub: 1,
+        }
+      });
+
+
+      // Line animation 
+      gsap.fromTo(
+        scene.querySelector(".intro__continuation-line"),
+        { scaleX: 0 },
+        {
+          scaleX: 1,
+          ease: "none",
+          scrollTrigger: {
+            trigger: scene.querySelector(".intro__scene-ending"),
+            start: "top 85%",
+            end: "top 45%",
+            scrub: 1,
+          },
+        }
+      );
+
+
+
+
+
+
+
+    
+
+
+      // 1. Reveal and gradually fade the introductory text blocks
       blocks.forEach((block, index) => {
         const text = block.querySelector(".intro__text");
         const timeline = gsap.timeline({
           scrollTrigger: {
-            trigger: block,
-            start: "top 85%",
-            end: "top -30%",
+            trigger: text,
+            start: "top 90%",
+            end: "top 45%",
             scrub: true,
             invalidateOnRefresh: true,
           },
@@ -30,10 +82,10 @@ function Intro() {
         // Reveal the text: fade from 0 to 1 and move slightly upward.
         timeline.fromTo(text,
           { opacity: 0, y: 32 },
-          { opacity: 1, y: 0, duration: 0.35, ease: "none" }
+          { opacity: 1, y: 0, duration: 1, ease: "none" }
         );
         // Keep the text fully opaque for part of the scroll distance.
-        timeline.to(text, { opacity: 1, duration: 1 });
+        timeline.to(text, { opacity: 1, duration: 0.3 });
 
         // Fade the first two blocks to 20% opacity; keep the last one visible.
         if (index < blocks.length - 1) {
@@ -75,7 +127,7 @@ function Intro() {
         duration: 1,
         ease: "none",
       }, "<");
-      // === 3. Reveal the GROUNDED message and link after the words separate ===
+      // 3. Reveal the GROUNDED message and link after the words separate
       pauseTimeline.fromTo(message,
         { autoAlpha: 0, y: 30 },
         { autoAlpha: 1, y: 0, duration: 0.45, ease: "none" }
@@ -106,7 +158,7 @@ function Intro() {
       
       <div className="intro__scene">
 
-        <p className="intro__scene-opening">Arbeidsdagen <br /> kan være over.</p>
+        <h2 className="intro__scene-opening">Arbeidsdagen <br /> kan være <span className="accent-italic">over</span>,</h2>
 
       <div className="intro__window">
         <div className="intro__photo">
@@ -118,8 +170,16 @@ function Intro() {
         </div>
       </div>
 
-        <p className="intro__scene-ending">
-          Men hodet <br /> fortsetter.</p>
+      <h2 className="intro__scene-ending">
+        Men hodet <br />
+        <span className="intro__continuation">
+          fortsetter
+        <span
+          className="intro__continuation-line"
+          aria-hidden="true"
+        />
+        </span>
+      </h2>
       
       </div>
 
@@ -137,13 +197,13 @@ function Intro() {
           <span className="intro__word intro__word--right">PAUSE</span>
         </h2>
         <div className="intro__message">
-          <h2 className="intro__message-heading">GROUNDED skaper rom for å stoppe opp.</h2>
+          <h2 className="intro__message-heading"> <span className="accent-italic">GROUNDED</span> skaper rom for å stoppe opp.</h2>
           <p className="intro__message-text">
             Legg merke til egne mønstre, finn tilbake til øyeblikket
             <br />
             og vær mer til stede i det som faktisk skjer.
           </p>
-          <a className="intro__programs-link" href="#tjenester">Utforsk programmene ↓</a>
+          <p className="intro__programs-arrow">Utforsk programmene ↓</p>
         </div>
       
       </div>

@@ -1,6 +1,7 @@
 // import Footer from "./Components/Footer"
 // import Cta from "./Components/Cta"
 // import About from "./Components/About"
+import About from "./Components/About"
 import Bedrifter from "./Components/Bedrifter"
 import Services from "./Components/Services"
 import Intro from "./Components/Intro"
@@ -18,8 +19,8 @@ function App() {
         <Intro />
         <Services />
         <Bedrifter />
-        {/* <About />
-        <Cta /> */}
+        <About />
+        {/* <Cta /> */}
       </main>
       {/* <Footer /> */}
     </>

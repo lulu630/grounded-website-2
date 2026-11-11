@@ -91,7 +91,7 @@ function Services() {
         {services.map((service, index) => (
           <article className="services__card" key={service.title} aria-labelledby={`service-title-${index}`}>
             <div className="services__card-content">
-              <h2 className="services__heading" id={`service-title-${index}`}>{service.title}</h2>
+              <h2 className="services__title" id={`service-title-${index}`}>{service.title}</h2>
               <p className="services__description">{service.description}</p>
               <a className="services__link" href="#kontakt">Finn ut mer →</a>
             </div>

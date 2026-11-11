@@ -1,14 +1,25 @@
 @font-face {
-  font-family: "Lunea";
-  src: url("./assets/fonts/Lunea sans.otf") format("opentype");
+  font-family: "PP Mori-Regular";
+  src: url("./assets/fonts/ppmori-regular.otf") format("opentype");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 
+
 @font-face {
-  font-family: "Moniqa.otf";
-  src: url("./assets/fonts/Moniqa.otf") format("opentype");
+  font-family: "PP Mori";
+  src: url("./assets/fonts/ppmori-semibold.otf") format("opentype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+
+}
+
+
+@font-face {
+  font-family: "PP Mori-Italic";
+  src: url("./assets/fonts/ppmori-semibolditalic.otf") format("opentype");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -22,14 +33,14 @@
 }
 
 body {
-font-family: "Lunea", sans-serif;
+font-family: "PP Mori-Regular", sans-serif;
 color: var(--text)
 
 }
 
 :root {
   --bg: rgb(255 252 242);
-  --text: rgb(67 47 35);
+  --text: rgb(64, 61, 57);
   --text-on-dark: rgb(250 250 250);
   --accent: rgb(40 69 133);
   --titles: rgb(40 69 133);
