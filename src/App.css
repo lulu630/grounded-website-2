@@ -678,17 +678,20 @@
 
 /*------------ ABOUT SECTION ------------*/
 
-.about{
+.about {
   background-color: var(--bg);
   padding-block: clamp(48px, 6vw, 96px);
   padding-inline: 24px;
   position: relative;
   overflow: hidden;
   isolation: isolate;
+  margin-top: -100svh;
+  min-height: 100svh;
+  z-index: 4;
 }
 
 
-.about__content{
+.about__content {
   max-width: 1200px;
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
@@ -699,7 +702,7 @@
 }
 
 
-.about__text{
+.about__text {
   display: flex;
   flex-direction: column;
   gap: 26px;
@@ -710,7 +713,7 @@
 }
 
 
-.about__img{
+.about__img {
   display: block;
   width: 100%;
   height: auto;
@@ -719,7 +722,106 @@
 }
 
 
+/*------------ CTA SECTION ------------*/
 
+
+
+.cta {
+  min-height: 100svh;
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  align-items: center;
+  gap: 8%;
+  padding: 80px 8%;
+  background: var(--bg);
+  color: var(--text);
+}
+
+
+.cta__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 70px;
+  text-align: center;
+}
+
+
+.cta__content p {
+  max-width: 540px;
+  /* font-size: clamp(24px, 2.5vw, 36px); */
+  font-size: clamp(19px, 1.5vw, 26px);
+  line-height: 1.9;
+}
+
+
+.cta__button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 22px 36px;
+  border: 3px solid var(--text);
+  border-radius: 14px;
+  color: var(--text);
+  font-size: 22px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.cta__button:hover {
+  border: 3px solid var(--accent);
+
+}
+
+
+.cta__animation {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  font-family: "PP Mori", sans-serif;
+  /* font-size: clamp(72px, 9vw, 128px); */
+  font-size: clamp(30px, 8.5vw, 108px);
+
+  font-weight: 600;
+  line-height: 1.2;
+  text-transform: uppercase;
+  
+}
+
+
+.cta__word {
+  display: block;
+}
+
+
+@media (max-width: 770px) {
+  .cta {
+    grid-template-columns: 1fr;
+    gap: 48px;
+    padding: 64px 24px;
+  }
+
+  .cta__animation {
+    grid-row: 1;
+    font-size: 64px;
+    gap: 12px;
+  }
+
+  .cta__content {
+    gap: 36px;
+  }
+
+  .cta__content p {
+    font-size: 22px;
+    line-height: 1.7;
+  }
+
+  .cta__button {
+    padding: 18px 32px;
+    font-size: 20px;
+  }
+}
 
 
 

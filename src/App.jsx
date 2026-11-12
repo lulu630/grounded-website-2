@@ -1,6 +1,5 @@
 // import Footer from "./Components/Footer"
-// import Cta from "./Components/Cta"
-// import About from "./Components/About"
+import Cta from "./Components/Cta"
 import About from "./Components/About"
 import Bedrifter from "./Components/Bedrifter"
 import Services from "./Components/Services"
@@ -20,7 +19,7 @@ function App() {
         <Services />
         <Bedrifter />
         <About />
-        {/* <Cta /> */}
+        <Cta />
       </main>
       {/* <Footer /> */}
     </>

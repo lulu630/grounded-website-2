@@ -18,7 +18,7 @@ function Bedrifter () {
             scrollTrigger: {
                 trigger: sectionRef.current,
                 start: "top top",
-                end: "+=210%",
+                end: "+=310%",
                 scrub: 1,
                 pin: true,
             },
@@ -62,6 +62,15 @@ function Bedrifter () {
             duration: 0.4,
         
         });
+
+
+        // Keep Bedrifter pinned while About slides over it.
+        timeline.to({}, {
+        duration: 0.67,
+
+        });
+
+        
 
 
     }, { scope: sectionRef});
