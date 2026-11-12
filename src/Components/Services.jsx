@@ -93,7 +93,22 @@ function Services() {
             <div className="services__card-content">
               <h2 className="services__title" id={`service-title-${index}`}>{service.title}</h2>
               <p className="services__description">{service.description}</p>
-              <a className="services__link" href="#kontakt">Finn ut mer →</a>
+              <a className="services__link" href="#kontakt">Finn ut mer {" "}
+                <svg
+                  className="services__arrow"
+                  viewBox="0 0 42 16"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  aria-hidden="true"
+                  focusable="false"
+                >
+                  <path className="services__arrow-line" d="M0 8H24" />
+                  <path className="services__arrow-head" d="M18 3L24 8L18 13" />
+                </svg>
+              </a>
             </div>
             <img className="services__mobile-image" src={service.image} alt={service.alt} loading="lazy" />
           </article>

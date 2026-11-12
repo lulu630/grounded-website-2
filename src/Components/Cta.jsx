@@ -36,7 +36,7 @@ function Cta() {
     });
 
 
-  // Reveal the description and button after the last word
+  // Reveal the description and link after the last word
     timeline.from(".cta__content", {
         autoAlpha: 0,
         y: 80,
@@ -54,8 +54,23 @@ function Cta() {
             <div className="cta__content">
                 <p>Start med en uforpliktende samtale, så finner vi ut hva som passer for deg eller din bedrift.</p>
 
-                <a className="cta__button" href="#book-samtale">
-                    Book en samtale
+                <a className="cta__link" href="#book-samtale">
+                    Book en samtale {" "}
+                    <svg
+                      className="cta__arrow"
+                      viewBox="0 0 42 16"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="1.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      aria-hidden="true"
+                      focusable="false"
+                    >
+                      <path className="cta__arrow-line" d="M0 8H24" />
+                      <path className="cta__arrow-head" d="M18 3L24 8L18 13" />
+                    </svg>
+                
                 </a>
             </div>
 

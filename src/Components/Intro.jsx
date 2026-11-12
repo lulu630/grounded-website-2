@@ -57,15 +57,6 @@ function Intro() {
         }
       );
 
-
-
-
-
-
-
-    
-
-
       // 1. Reveal and gradually fade the introductory text blocks
       blocks.forEach((block, index) => {
         const text = block.querySelector(".intro__text");
