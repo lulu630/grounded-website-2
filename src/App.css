@@ -1,7 +1,10 @@
 /* Notes ------------ 
-1. parallax footer-logo?
-2. 
-3.
+
+- parallax footer-logo?
+- optimize image size
+- сбалансировать типографику
+- адаптивность
+
 
 ------------ */
 
@@ -42,9 +45,11 @@
 
 }
 
-
-.cta__arrow,
-.services__arrow {
+.services__arrow,
+.bedrifter__arrow,
+.about__arrow,
+.cta__arrow
+ {
   display: inline-block;
   width: 42px;
   height: 16px;
@@ -52,28 +57,38 @@
   margin-left: 8px;
 }
 
+
 .cta__arrow-line,
 .cta__arrow-head,
 .services__arrow-line,
-.services__arrow-head {
+.services__arrow-head,
+.about__arrow-line,
+.about__arrow-head,
+.bedrifter__arrow-line,
+.bedrifter__arrow-head {
   transition: transform 0.25s ease;
 }
 
 .cta__arrow-line,
-.services__arrow-line {
+.services__arrow-line,
+.about__arrow-line,
+.bedrifter__arrow-line {
   transform-origin: 0 8px;
 }
 
 .cta__link:hover .cta__arrow-line,
-.services__link:hover .services__arrow-line {
+.services__link:hover .services__arrow-line,
+.bedrifter__link:hover .bedrifter__arrow-line,
+.about__link:hover .about__arrow-line {
   transform: scaleX(1.6667);
 }
 
 .cta__link:hover .cta__arrow-head,
-.services__link:hover .services__arrow-head {
+.services__link:hover .services__arrow-head,
+.bedrifter__link:hover .bedrifter__arrow-head,
+.about__link:hover .about__arrow-head {
   transform: translateX(16px);
 }
-
 
 
 @media (max-width: 770px) {
@@ -265,7 +280,6 @@
   z-index: 2;
   font-size: 62px; 
   font-weight: 400;
-  font-family: "PP Mori-Italic";
   line-height: 1.5;
   text-transform: uppercase;
 
@@ -458,10 +472,7 @@
 }
 
 .accent-italic {
-  /* font-style: italic; */
-  font-family: "PP Mori-Italic";
   color: var(--accent);
-
 }
 
 
@@ -707,6 +718,7 @@
 }
 
 
+
 /*------------ ABOUT SECTION ------------*/
 
 .about {
@@ -752,9 +764,8 @@
 }
 
 
+
 /*------------ CTA SECTION ------------*/
-
-
 
 .cta {
   min-height: 100svh;
@@ -763,14 +774,6 @@
   align-items: center;
   gap: 8%;
   padding: 80px 8%;
-  /* background: linear-gradient(
-    135deg,
-    rgb(238 228 215) 0%,
-    rgb(248 241 229) 32%,
-    rgb(255 252 242) 50%,
-    rgb(246 237 224) 70%,
-    rgb(235 225 212) 100%
-  ); */
   color: var(--text);
 }
 
@@ -786,7 +789,6 @@
 
 .cta__content p {
   max-width: 540px;
-  /* font-size: clamp(24px, 2.5vw, 36px); */
   font-size: clamp(19px, 1.5vw, 26px);
   line-height: 1.9;
 }
@@ -798,9 +800,7 @@
   align-items: center;
   gap: 24px;
   font-family: "PP Mori", sans-serif;
-  /* font-size: clamp(72px, 9vw, 128px); */
   font-size: clamp(30px, 8.5vw, 108px);
-
   font-weight: 600;
   line-height: 1.2;
   text-transform: uppercase;
@@ -837,6 +837,142 @@
 
   .cta__link {
     font-size: 20px;
+  }
+}
+
+
+
+/*------------ FOOTER SECTION ------------ */
+
+.footer {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
+  padding: 80px 6% 24px;
+  color: var(--text);
+}
+
+
+.footer__info {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(40px, 14vw, 200px);
+  width: 100%;
+  max-width: 800px;
+  margin-inline: auto;
+}
+
+
+.footer__heading {
+  margin-bottom: 48px;
+  color: var(--accent);
+  font-family: "PP Mori", sans-serif;
+  font-size: clamp(20px, 2vw, 28px);
+  font-weight: 600;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+
+.footer__links {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: clamp(19px, 1.5vw, 26px);
+  line-height: 1.5;
+}
+
+
+.footer a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+
+.footer a:hover {
+  color: var(--accent);
+}
+
+
+.footer__contact {
+  min-width: 0;
+}
+
+
+.footer__contact a {
+  overflow-wrap: anywhere;
+}
+
+
+.footer__logo {
+  overflow: hidden;
+  text-align: center;
+}
+
+
+.footer__logo-text {
+  display: block;
+  color: var(--footer-logo);
+  font-family: "PP Mori", sans-serif;
+  font-size: 15vw;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: -0.055em;
+  white-space: nowrap;
+}
+
+
+.footer__bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 0;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+
+.footer__legal {
+  display: flex;
+  gap: 28px;
+}
+
+
+@media (max-width: 770px) {
+  .footer {
+    gap: 56px;
+    padding: 56px 24px 20px;
+  }
+
+  .footer__info {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .footer__heading {
+    margin-bottom: 24px;
+    font-size: 20px;
+  }
+
+  .footer__links {
+    font-size: 22px;
+  }
+
+  .footer__bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    font-size: 12px;
+  }
+
+  .footer__legal {
+    gap: 20px;
   }
 }
 

@@ -93,7 +93,12 @@ function Services() {
             <div className="services__card-content">
               <h2 className="services__title" id={`service-title-${index}`}>{service.title}</h2>
               <p className="services__description">{service.description}</p>
-              <a className="services__link" href="#kontakt">Finn ut mer {" "}
+              <a 
+              className="services__link" 
+              href="#"
+              onClick={(event) => event.preventDefault()}
+              >
+                Finn ut mer {" "}
                 <svg
                   className="services__arrow"
                   viewBox="0 0 42 16"

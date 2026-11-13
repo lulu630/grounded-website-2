@@ -1,4 +1,4 @@
-// import Footer from "./Components/Footer"
+import Footer from "./Components/Footer"
 import Cta from "./Components/Cta"
 import About from "./Components/About"
 import Bedrifter from "./Components/Bedrifter"
@@ -21,7 +21,7 @@ function App() {
         <About />
         <Cta />
       </main>
-      {/* <Footer /> */}
+      <Footer />
     </>
   )
 }

@@ -107,13 +107,38 @@ function Bedrifter () {
                     Grounded tilbyr praktiske workshops som hjelper team med å håndtere stress, styrke fokus og skape en mer bærekraftig hverdag.
                 </p>
 
-                <a
+                {/* <a
                     className="bedrifter__link" 
                     href="#"
                     onClick={(event) => event.preventDefault()}
                     >
                     Les mer om bedriftsløsninger
-                </a>
+                </a> */}
+
+                  <a 
+                className="bedrifter__link" 
+                href="#"
+                onClick={(event) => event.preventDefault()}
+                >
+                    Les mer om bedriftsløsninger {" "}
+                <svg
+                  className="bedrifter__arrow"
+                  viewBox="0 0 42 16"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  aria-hidden="true"
+                  focusable="false"
+                >
+                  <path className="bedrifter__arrow-line" d="M0 8H24" />
+                  <path className="bedrifter__arrow-head" d="M18 3L24 8L18 13" />
+                </svg>
+              </a>
+
+
+
           </div>
 
         </section>

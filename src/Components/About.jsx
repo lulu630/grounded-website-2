@@ -17,13 +17,30 @@ function About() {
                 <p>
                     Jeg heter Maria Kowalska og har bakgrunn innen organisasjonspsykologi, lederutvikling og mindfulness. I arbeidet mitt hjelper jeg mennesker med høyt tempo og stort ansvar til å finne mer ro, fokus og balanse.                
                 </p>
-                <a
+    
+                <a 
                 className="about__link" 
                 href="#"
                 onClick={(event) => event.preventDefault()}
                 >
-                Les mer
-                </a>
+                    Finn ut mer {" "}
+                <svg
+                  className="about__arrow"
+                  viewBox="0 0 42 16"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  aria-hidden="true"
+                  focusable="false"
+                >
+                  <path className="about__arrow-line" d="M0 8H24" />
+                  <path className="about__arrow-head" d="M18 3L24 8L18 13" />
+                </svg>
+              </a>
+
+
                 </div>
             </div>
             
