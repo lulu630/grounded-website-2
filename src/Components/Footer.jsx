@@ -1,27 +1,30 @@
-
-
 function Footer() {
-  return (
-    <footer className="footer" id="kontakt">
-      <div className="footer__info">
-        <nav className="footer__nav" aria-label="Utforsk">
-          <h2 className="footer__heading">Utforsk</h2>
 
-          <ul className="footer__links">
-            <li>
-              <a href="#" onClick={(event) => event.preventDefault()}>Tjenester</a>
-            </li>
-            <li>
-              <a href="#" onClick={(event) => event.preventDefault()}>For bedrifter</a>
-            </li>
-            <li>
-              <a href="#" onClick={(event) => event.preventDefault()}>Om Grounded</a>
-            </li>
-            <li>
-              <a href="#" onClick={(event) => event.preventDefault()}>Kontakt</a>
-            </li>
-          </ul>
-        </nav>
+  return (
+    <footer 
+    className="footer" 
+    id="kontakt"
+    >
+        <div
+        className="footer__cover">
+            <div className="footer__info">
+                <nav className="footer__nav" aria-label="Utforsk">
+                    <h2 className="footer__heading">Utforsk</h2>
+                    <ul className="footer__links">
+                        <li>
+                            <a href="#" onClick={(event) => event.preventDefault()}>Tjenester</a>
+                        </li>
+                        <li>
+                            <a href="#" onClick={(event) => event.preventDefault()}>For bedrifter</a>
+                        </li>
+                        <li>
+                        <a href="#" onClick={(event) => event.preventDefault()}>Om Grounded</a>
+                        </li>
+                        <li>
+                        <a href="#" onClick={(event) => event.preventDefault()}>Kontakt</a>
+                        </li>
+                    </ul>
+                </nav>
 
         <div className="footer__contact">
           <h2 className="footer__heading">Kontakt</h2>
@@ -42,6 +45,10 @@ function Footer() {
           </ul>
         </div>
       </div>
+         
+
+        </div>
+
 
       <div className="footer__logo">
         <span className="footer__logo-text">GROUNDED</span>

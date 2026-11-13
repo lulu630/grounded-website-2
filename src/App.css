@@ -4,6 +4,7 @@
 - optimize image size
 - сбалансировать типографику
 - адаптивность
+- выровнять текст в карточках
 
 
 ------------ */
@@ -848,9 +849,22 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  gap: 80px;
-  padding: 80px 6% 24px;
+  gap: 0;
+  padding: 0;
   color: var(--text);
+  clip-path: inset(0);
+}
+
+.footer__cover {
+  position: relative;
+  z-index: 2;
+  padding: 80px 6%;
+
+  background: var(--page-gradient);
+  background-attachment: fixed;
+  background-size: 100vw 100vh;
+  background-position: 0 0;
+  background-repeat: no-repeat;
 }
 
 
@@ -910,6 +924,9 @@
 
 
 .footer__logo {
+  position: sticky;
+  bottom: 0;
+  z-index: 1;
   overflow: hidden;
   text-align: center;
 }
@@ -928,6 +945,9 @@
 
 
 .footer__bottom {
+  position: relative;
+  z-index: 2;
+  padding: 32px 6% 24px;
   display: flex;
   justify-content: space-between;
   align-items: center;
