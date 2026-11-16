@@ -1,9 +1,9 @@
 import { useLayoutEffect, useRef } from "react"
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
-import coachingImage from "../assets/images/1-1-coaching.jpg"
-import groundedImage from "../assets/images/grounded-reset.jpg"
-import executiveImage from "../assets/images/executive-reset.jpg"
+import coachingImage from "../assets/images/1-1-coaching.webp"
+import groundedImage from "../assets/images/grounded-reset.webp"
+import executiveImage from "../assets/images/executive-reset.webp"
 
 gsap.registerPlugin(ScrollTrigger)
 

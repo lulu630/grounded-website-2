@@ -1,4 +1,4 @@
-import couch from "../assets/images/couch.jpg"
+import couch from "../assets/images/couch.webp"
 
 function About() {
     return (

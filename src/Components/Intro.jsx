@@ -1,7 +1,8 @@
-import introImage from "../assets/images/intro.jpg";
+import introImage from "../assets/images/intro.webp";
 import { useLayoutEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -85,7 +86,7 @@ function Intro() {
       });
 
 
-      // === 2. Move PRESTASJON and PAUSE apart as the user scrolls ===
+      // 2. Move PRESTASJON and PAUSE apart as the user scrolls ===
       const stage = sectionRef.current.querySelector(".intro__pause-stage");
       const words = stage.querySelector(".intro__words");
       const leftWord = stage.querySelector(".intro__word--left");
@@ -106,6 +107,7 @@ function Intro() {
 
       // Keep the words joined for a short part of the scroll distance.
       pauseTimeline.to(words, { duration: 0.2 });
+      
       // Move PRESTASJON beyond the left edge of the section.
       pauseTimeline.to(leftWord, {
         x: () => -(stage.clientWidth + words.offsetWidth) / 2,
@@ -171,10 +173,8 @@ function Intro() {
         />
         </span>
       </h2>
-      
       </div>
 
-      
       <div className="intro__block intro__block--description">
         <p className="intro__text intro__description">
           Beslutninger og ansvar blir ofte med videre inn i kvelden.
@@ -194,7 +194,29 @@ function Intro() {
             <br />
             og vær mer til stede i det som faktisk skjer.
           </p>
-          <p className="intro__programs-arrow">Utforsk programmene ↓</p>
+          
+          {/* <p className="intro__programs-arrow">Utforsk programmene ↓</p> */}
+
+          <p className="intro__programs-arrow">
+          <span>Sjekk våre programmer</span>
+
+  <svg
+    width="16"
+    height="52"
+    viewBox="0 0 16 52"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="3"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    aria-hidden="true"
+    focusable="false"
+  >
+    <path d="M8 1V40M2 34L8 40L14 34" />
+  </svg>
+</p>
+        
+        
         </div>
       
       </div>

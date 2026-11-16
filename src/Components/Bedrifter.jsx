@@ -1,4 +1,4 @@
-import bedrifter from "../assets/images/bedrifter.jpg"
+import bedrifter from "../assets/images/bedrifter.webp"
 import { useRef } from "react"
 import gsap from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"

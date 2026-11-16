@@ -40,6 +40,10 @@
   --titles: rgb(40 69 133);
   --footer-logo: rgb(67 47 35 / 16%);
 
+  --font-size-body: clamp(19px, 1.6vw, 24px);
+  --line-height-body: 1.7;
+  
+
 }
 
 
