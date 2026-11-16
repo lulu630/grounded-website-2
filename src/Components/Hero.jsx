@@ -1,26 +1,16 @@
-import { useState } from "react"
-import heroVideo from "../assets/videos/hero.mov"
-import secondHeroVideo from "../assets/videos/hero-2.mov"
-import thirdHeroVideo from "../assets/videos/hero-3.mov"
-
-
-const videos = [heroVideo, secondHeroVideo, thirdHeroVideo];
-
+import heroVideo from "../assets/videos/hero.mp4"
 
 function Hero() {
-    const [videoIndex, setVideoIndex] = useState(0);
 
     return(
         <section className="hero" id="home" aria-label="hero">
             <video
             className="hero-video"
-            src={videos[videoIndex]}
+            src={heroVideo}
             autoPlay
             muted
+            loop
             playsInline
-            onEnded={() => {
-                setVideoIndex((index) => (index + 1) % videos.length);
-            }}
             />
 
             <div className="hero__content">

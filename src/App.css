@@ -421,7 +421,8 @@
 }
 
 
-.intro__description {
+.intro__description,
+.bedrifter__content p{
   font-size: clamp(21px, 3.2vw, 46px);
   line-height: 1.65;
 }
@@ -590,6 +591,24 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transition: scale 0.6s ease, filter 0.6s ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .services__window:hover .services__window-image {
+    scale: 1.06 !important;
+    filter: brightness(0.9);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .services__window-image {
+    transition: none;
+  }
+
+  .services__window:hover .services__window-image {
+    scale: 1 !important;
+  }
 }
 
 
@@ -699,8 +718,6 @@
 
 
 .bedrifter__content p {
-  font-size: clamp(19px, 3.5vw, 48px);
-  line-height: 1.8;
   max-width: 850px;
   color: var(--text-on-dark);
 
@@ -759,11 +776,32 @@
   display: block;
   width: 100%;
   height: auto;
-  border-radius: 32% / 25%;
-
+  transition: transform 0.6s ease, filter 0.6s ease;
 }
 
 
+.about__window {
+  border-radius: 32% / 25%;
+  overflow: hidden;
+
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .about__window:hover .about__img {
+    transform: scale(1.06);
+    filter: brightness(0.9);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .about__img {
+    transition: none;
+  }
+
+  .about__window:hover .about__img {
+    transform: none;
+  }
+}
 
 /*------------ CTA SECTION ------------*/
 

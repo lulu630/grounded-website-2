@@ -5,10 +5,13 @@ function About() {
         <section 
         className="about">
             <div className="about__content">
-                <img 
-                className="about__img"
-                src={couch} 
-                alt="red-haired woman in a feminine suit" />
+                <div className="about__window">
+                    <img
+                    className="about__img"
+                    src={couch}
+                    alt="red-haired woman in a feminine suit" />
+                </div>
+
                 <div className="about__text">
                 <h2 className="about__title">Om Grounded</h2>
                 <p>
