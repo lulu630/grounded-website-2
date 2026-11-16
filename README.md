@@ -66,10 +66,10 @@ The homepage is implemented as a sequence of teasers for the planned service, bu
 
 Responsive layouts and animation timing are still being refined. The project does not currently include a backend.
 
-## Visual references
+## Credits
 
-- [TrueKind](https://truekindskincare.com/) — inspiration for the oval photographic composition.
-- [Paper](https://paper.design/) — inspiration for the layered footer reveal.
+- Photography: [Unsplash+](https://unsplash.com/plus).
+- Typeface: PP Mori, sourced from [befonts.com](https://befonts.com/).
 
 ## Author
 
