@@ -1,7 +1,6 @@
 /* Notes ------------ 
 
 - адаптивность
-- выровнять текст в карточках
 
 ------------ */
 
@@ -447,6 +446,12 @@
 .bedrifter__content p{
   font-size: clamp(21px, 3.2vw, 46px);
   line-height: 1.65;
+}
+
+
+.bedrifter__content p,
+.bedrifter__link {
+  text-shadow: 0 2px 8px rgb(0 0 0 / 55%);
 }
 
 
