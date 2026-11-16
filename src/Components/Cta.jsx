@@ -19,7 +19,7 @@ function Cta() {
             scrollTrigger: {
             trigger: sectionRef.current,
             start: "top top",
-            end: "+=140%",
+            end: "+=180%",
             scrub: 1,
             pin: true,
         },
@@ -43,6 +43,13 @@ function Cta() {
         duration: 0.6,
         ease: "none",
     });
+
+    // Hold the completed CTA before the footer enters.
+    timeline.to({}, {
+    duration: 0.5,
+
+    });
+    
     }, { scope: sectionRef });
 
 

@@ -3,13 +3,26 @@
 - сбалансировать типографику
 - адаптивность
 - выровнять текст в карточках
-- readme
+- extra hero-video?
 
 
 ------------ */
 
 
 /*------------ SHARED STYLES ------------ */
+
+.services__description,
+.about__text,
+.cta__content p {
+  max-width: 540px;
+}
+
+
+.intro__description,
+.about__content {
+  max-width: 1200px;
+}
+
 
 .services__title,
 .bedrifter__title,
@@ -20,13 +33,12 @@
   line-height: 1.2;
   font-family: "PP Mori", serif;
   text-transform: uppercase;
-
 }
+
 
 .services__description,
 .about__text p,
-.cta__content p,
-.footer__links {
+.cta__content p {
   font-size: var(--font-size-body);
   line-height: var(--line-height-body);
 }
@@ -46,7 +58,7 @@
 
 .footer__links,
 .footer__bottom {
-  font-size: 14px;
+  font-size: clamp(13px, 1.1vw, 14px);
   line-height: 1.7;
 }
 
@@ -276,9 +288,8 @@
 
 .intro {
   color: var(--text);
-  padding: 0 4% 25vh;
+  padding: 0 4%;
   text-align: center;
-
 }
 
 
@@ -346,15 +357,11 @@
   overflow: hidden;
   transform: translate(-50%, -44.5013%);
   clip-path: url(#intro-oval);
-
   /* 
   top опускает овал ниже относительно секции. 
   width уменьшает овал вместе с фото
   */
-
-
 }
-
 
 
 .intro__photo {
@@ -418,7 +425,6 @@
 
 
 .intro__description {
-  max-width: 1200px;
   font-size: clamp(21px, 3.2vw, 46px);
   line-height: 1.65;
 }
@@ -504,14 +510,11 @@
   flex-direction: column;
   align-items: center;
   gap: 16px;
-  margin: 0;
-  color: var(--text);
-
-  font-size: clamp(28px, 4.2vw, 60px);
-  font-weight: 600;
+  font-size: clamp(20px, 2.6vw, 38px);
   line-height: 1.3;
-
-
+  position: relative;
+  top: 60px;
+  
 }
 
 
@@ -552,28 +555,13 @@
   display: flex;
   align-items: center;
   padding-block: 70px;
-
-}
-
-
-.services__title {
-  /* line-height: 1.15;
-  margin-bottom: clamp(25px, 2vw, 50px); */
 }
 
 
 .services__card-content{
     display: flex;
     flex-direction: column;
-    /* gap: clamp(32px, 6vw, 60px); */
     gap: 26px;
-
-
-
-}
-
-.services__description {
-  max-width: 540px;
 }
 
 
@@ -754,13 +742,11 @@
 
 
 .about__content {
-  max-width: 1200px;
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   margin-inline: auto;
   gap: clamp(32px, 6vw, 80px);
   align-items: start;
-
 }
 
 
@@ -769,7 +755,6 @@
   flex-direction: column;
   gap: 26px;
   align-self: center;
-  max-width: 540px;
 }
 
 
@@ -802,11 +787,6 @@
   align-items: center;
   gap: 30px;
   text-align: center;
-}
-
-
-.cta__content p {
-  max-width: 540px;
 }
 
 
@@ -874,14 +854,12 @@
 .footer__cover {
   position: relative;
   z-index: 2;
-  padding: 80px 6%;
+  padding: 140px 6% 80px;
   background: var(--page-gradient);
   background-attachment: fixed;
   background-size: 100vw 100vh;
   background-position: 0 0;
   background-repeat: no-repeat;
-  
-
 }
 
 
@@ -904,7 +882,6 @@
   font-weight: 600;
   line-height: 1.2;
   text-transform: uppercase;
-
 }
 
 
