@@ -21,9 +21,36 @@ function Hero() {
                     Mindfulnesscoaching<br />
                     for forretningsfolk
                 </p>
-                <a className="hero__button" href="#book-samtale">
+
+                {/* <a className="hero__button" href="#book-samtale">
                     Book samtale
+
+                </a> */}
+
+                <a 
+                className="hero__button" 
+                href="#"
+                onClick={(event) => event.preventDefault()}
+                >
+                    Book samtale {" "}
+                    <svg
+                    className="hero__arrow"
+                    viewBox="0 0 42 16"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="1.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    aria-hidden="true"
+                    focusable="false"
+                    >
+                    <path className="hero__arrow-line" d="M0 8H24" />
+                    <path className="hero__arrow-head" d="M18 3L24 8L18 13" />
+                    </svg>
                 </a>
+
+
+
             </div>
 
         </section>
