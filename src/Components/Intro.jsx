@@ -14,8 +14,6 @@ function Intro() {
 
     media.add("(prefers-reduced-motion: no-preference)", () => {
       const scene = sectionRef.current.querySelector(".intro__scene");
-      const blocks = sectionRef.current.querySelectorAll(".intro__block");
-
 
       // Photo parallax effect
       gsap.to(scene.querySelector(".intro__image"), {
@@ -39,61 +37,40 @@ function Intro() {
           end:"bottom top",
           scrub: 1,
         }
+
       });
 
 
-      // Line animation 
-      gsap.fromTo(
+      const introTimeline = gsap.timeline({
+        scrollTrigger: {
+        trigger: scene.querySelector(".intro__scene-ending"),
+        start: "top 85%",
+        end: "top top",
+        scrub: 1,
+      },
+    });
+
+      // Draw the line.
+      introTimeline.fromTo(
         scene.querySelector(".intro__continuation-line"),
         { scaleX: 0 },
-        {
-          scaleX: 1,
-          ease: "none",
-          scrollTrigger: {
-            trigger: scene.querySelector(".intro__scene-ending"),
-            start: "top 85%",
-            end: "top 45%",
-            scrub: 1,
-          },
-        }
+        { scaleX: 1, duration: 1, ease: "none" }
       );
 
-      // 1. Reveal and gradually fade the introductory text blocks
-      blocks.forEach((block, index) => {
-        const text = block.querySelector(".intro__text");
-        const timeline = gsap.timeline({
-          scrollTrigger: {
-            trigger: text,
-            start: "top 90%",
-            end: "top 45%",
-            scrub: true,
-            invalidateOnRefresh: true,
-          },
-        });
+      // Reveal the description immediately after the line.
+      introTimeline.fromTo(
+        sectionRef.current.querySelector(".intro__description"),
+        { opacity: 0, y: 32 },
+        { opacity: 1, y: 0, duration: 1, ease: "none" }
+      );
 
-        // Reveal the text: fade from 0 to 1 and move slightly upward.
-        timeline.fromTo(text,
-          { opacity: 0, y: 32 },
-          { opacity: 1, y: 0, duration: 1, ease: "none" }
-        );
-        // Keep the text fully opaque for part of the scroll distance.
-        timeline.to(text, { opacity: 1, duration: 0.3 });
-
-        // Fade the first two blocks to 20% opacity; keep the last one visible.
-        if (index < blocks.length - 1) {
-          timeline.to(text, { opacity: 0.2, duration: 0.4, ease: "none" });
-        }
-      });
-
-
-      // 2. Move PRESTASJON and PAUSE apart as the user scrolls ===
+      // Move PRESTASJON and PAUSE apart.
       const stage = sectionRef.current.querySelector(".intro__pause-stage");
       const words = stage.querySelector(".intro__words");
       const leftWord = stage.querySelector(".intro__word--left");
       const rightWord = stage.querySelector(".intro__word--right");
       const message = stage.querySelector(".intro__message");
 
-      // Pin the section and link animation progress to scrolling.
       const pauseTimeline = gsap.timeline({
         scrollTrigger: {
           trigger: stage,
@@ -105,9 +82,12 @@ function Intro() {
         },
       });
 
-      // Keep the words joined for a short part of the scroll distance.
+      // Keep the words joined briefly.
       pauseTimeline.to(words, { duration: 0.2 });
-      
+
+
+
+
       // Move PRESTASJON beyond the left edge of the section.
       pauseTimeline.to(leftWord, {
         x: () => -(stage.clientWidth + words.offsetWidth) / 2,
