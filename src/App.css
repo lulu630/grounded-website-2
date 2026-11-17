@@ -154,14 +154,14 @@
   top: 0;
   left: 0;
   z-index: 3;
-  height: 54px;
+  height: 58px;
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
   padding-inline: 8%;
   white-space: nowrap;
-  gap: 28px;
+  gap: 29px;
 
 }
 
@@ -180,9 +180,9 @@
   display: flex;
   align-items: center;
   width: 100%;
-  max-width: 530px;
+  max-width: 550px;
   justify-content: space-between;
-  gap: 1.5rem;
+  gap: 1.8rem;
 
 }
 
@@ -195,23 +195,6 @@
 .site-header__link:hover {
   color: var(--accent);
 }
-
-
-
-/* .hero__button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: 45px;
-  padding: 17px 28px;
-  border: 3px solid var(--text-on-dark);
-  border-radius: 14px;
-  color: var(--text-on-dark);
-  font-size: 20px;
-  font-weight: 700;
-  text-decoration: none;
-  transition: border-color 0.2s ease;
-} */
 
 
 .hero__button:hover {
