@@ -29,9 +29,6 @@
   line-height: 1.2;
   font-family: "PP Mori", serif;
   text-transform: uppercase;
-  text-shadow: 0px 4px 7px rgb(67 47 35 / 23%);
-  /* смещение вбок, смещение вниз, размытие, % - непрозрачность цвета тени */
-
 }
 
 
@@ -172,7 +169,6 @@
   font-weight: 400;
   position: relative;
   text-decoration: none;
-
 }
 
 
@@ -180,9 +176,9 @@
   display: flex;
   align-items: center;
   width: 100%;
-  max-width: 550px;
+  max-width: 590px;
   justify-content: space-between;
-  gap: 1.8rem;
+  gap: 2.5rem;
 
 }
 
