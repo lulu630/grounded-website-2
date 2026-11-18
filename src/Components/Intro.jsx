@@ -107,8 +107,6 @@ function Intro() {
       pauseTimeline.to(words, { duration: 0.2 });
 
 
-
-
       // Move PRESTASJON beyond the left edge of the section.
       pauseTimeline.to(leftWord, {
         x: () => -(stage.clientWidth + words.offsetWidth) / 2,

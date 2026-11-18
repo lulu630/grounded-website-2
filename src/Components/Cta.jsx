@@ -15,16 +15,32 @@ function Cta() {
             window.matchMedia("(prefers-reduced-motion: reduce)").matches
         ) return;
         
-        const timeline = gsap.timeline({
-            scrollTrigger: {
+    //     const timeline = gsap.timeline({
+    //         scrollTrigger: {
+    //         trigger: sectionRef.current,
+    //         start: "top top",
+    //         end: "+=180%",
+    //         scrub: 1,
+    //         pin: true,
+    //     },
+    // });
+
+        const ctaPin = ScrollTrigger.create({
             trigger: sectionRef.current,
             start: "top top",
             end: "+=180%",
-            scrub: 1,
             pin: true,
-        },
-    });
+        });
 
+        const timeline = gsap.timeline({
+        scrollTrigger: {
+            trigger: sectionRef.current,
+            start: () => ctaPin.start,
+            end: () => ctaPin.end,
+            scrub: 1,
+            once: true,
+        },
+        });
 
     // Reveal the words one after another
     timeline.from(".cta__word", {
@@ -36,7 +52,7 @@ function Cta() {
     });
 
 
-  // Reveal the description and link after the last word
+    // Reveal the description and link after the last word
     timeline.from(".cta__content", {
         autoAlpha: 0,
         y: 80,
