@@ -58,14 +58,47 @@ function Services() {
       }
 
       showImage(0);
-      cards.forEach((card, index) => {
-        if (index === 0) return;
-        ScrollTrigger.create({
-          trigger: card,
-          start: "top 20%",
-          onEnter: () => showImage(index),
-          onLeaveBack: () => showImage(index - 1),
-        });
+      let snapPoints = [];
+      function updateImage(self) {
+        if (!snapPoints.length) return;
+
+        const closest = gsap.utils.snap(snapPoints, self.progress);
+        showImage(snapPoints.indexOf(closest));
+      }
+
+      ScrollTrigger.create({
+        trigger: cards[0],
+        start: "center center",
+        endTrigger: cards[cards.length - 1],
+        end: "center center",
+
+        snap: reducedMotion.matches ? false : {
+          snapTo: (progress) => gsap.utils.snap(snapPoints, progress),
+          directional: false,
+          inertia: false,
+          delay: 0.15,
+          duration: 0.4,
+          ease: "power1.inOut",
+        },
+
+        // Recalculate card centers when the layout changes.
+        onRefresh: (self) => {
+          const centers = Array.from(cards, (card) =>
+            card.offsetTop + card.offsetHeight / 2
+          );
+
+          const distance = centers[centers.length - 1] - centers[0];
+
+          snapPoints = centers.map(
+            (center) => (center - centers[0]) / distance
+          );
+
+          updateImage(self);
+        },
+
+        onUpdate: updateImage,
+        onLeaveBack: () => showImage(0),
+        onLeave: () => showImage(cards.length - 1),
       });
 
       return () => {
@@ -93,10 +126,10 @@ function Services() {
             <div className="services__card-content">
               <h2 className="services__title" id={`service-title-${index}`}>{service.title}</h2>
               <p className="services__description">{service.description}</p>
-              <a 
-              className="services__link" 
-              href="#"
-              onClick={(event) => event.preventDefault()}
+              <a
+                className="services__link"
+                href="#"
+                onClick={(event) => event.preventDefault()}
               >
                 Finn ut mer {" "}
                 <svg
