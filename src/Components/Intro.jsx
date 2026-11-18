@@ -71,16 +71,37 @@ function Intro() {
       const rightWord = stage.querySelector(".intro__word--right");
       const message = stage.querySelector(".intro__message");
 
-      const pauseTimeline = gsap.timeline({
+      // const pauseTimeline = gsap.timeline({
+      //   scrollTrigger: {
+      //     trigger: stage,
+      //     start: "top top",
+      //     end: () => `+=${window.innerHeight * 2.5}`,
+      //     pin: true,
+      //     scrub: true,
+      //     invalidateOnRefresh: true,
+      //   },
+      // });
+
+      const pausePin = 
+      ScrollTrigger.create({
+        trigger: stage,
+        start: "top top",
+        end: () => `+=${window.innerHeight * 2.5}`,
+        pin: true,
+      });
+
+      const pauseTimeline = 
+      gsap.timeline({
         scrollTrigger: {
           trigger: stage,
-          start: "top top",
-          end: () => `+=${window.innerHeight * 2.5}`,
-          pin: true,
+          start: () => pausePin.start,
+          end: () => pausePin.end,
           scrub: true,
-          invalidateOnRefresh: true,
+          once: true,
+          invalidateОnRefresh: true,
         },
       });
+
 
       // Keep the words joined briefly.
       pauseTimeline.to(words, { duration: 0.2 });
@@ -107,6 +128,10 @@ function Intro() {
       );
       // Hold the final message before the pinned section ends.
       pauseTimeline.to(message, { duration: 0.35 });
+
+
+      pauseTimeline.set(words, { autoAlpha: 0 });
+
     }, sectionRef);
 
     return () => media.revert();
