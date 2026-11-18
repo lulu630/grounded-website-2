@@ -63,18 +63,18 @@ function Bedrifter () {
         });
 
 
-        // // Keep Bedrifter pinned while About slides over it.
-        // timeline.to({}, {
-        // duration: 0.67,
+        // Keep Bedrifter pinned while About slides over it.
+        timeline.to({}, {
+        duration: 0.67,
 
-        // });
+        });
 
         // Move the content upward while About slides over Bedrifter.
-        timeline.to(".bedrifter__content", {
-            y: () => -window.innerHeight,
-            duration: 0.67,
-            ease: "power1.in",
-        });
+        // timeline.to(".bedrifter__content", {
+        //     y: () => -window.innerHeight,
+        //     duration: 0.67,
+        //     ease: "power1.in",
+        // });
 
 
     }, { scope: sectionRef});

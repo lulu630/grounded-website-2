@@ -9,11 +9,11 @@ gsap.registerPlugin(ScrollTrigger, useGSAP);
 function Cta() { 
     const sectionRef = useRef(null);
 
-
     useGSAP(() => {
         if (
             window.matchMedia("(prefers-reduced-motion: reduce)").matches
         ) return;
+
         
     //     const timeline = gsap.timeline({
     //         scrollTrigger: {
@@ -25,29 +25,38 @@ function Cta() {
     //     },
     // });
 
+
         const ctaPin = ScrollTrigger.create({
             trigger: sectionRef.current,
             start: "top top",
             end: "+=180%",
             pin: true,
+            onEnterBack: (self) => {
+                const scroll = Math.min(self.scroll(), self.start);
+                self.kill();
+                self.scroll(scroll);
+                ScrollTrigger.refresh();
+            },
         });
 
+    
         const timeline = gsap.timeline({
         scrollTrigger: {
             trigger: sectionRef.current,
-            start: () => ctaPin.start,
+            start: () => ctaPin.start - window.innerHeight * 0.6,
             end: () => ctaPin.end,
             scrub: 1,
             once: true,
         },
         });
 
+
     // Reveal the words one after another
     timeline.from(".cta__word", {
         autoAlpha: 0,
         y: 50,
         duration: 0.4,
-        stagger: 0.5,
+        stagger: 0.2,
         ease: "none",
     });
 

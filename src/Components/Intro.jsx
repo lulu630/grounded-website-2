@@ -47,6 +47,8 @@ function Intro() {
         start: "top 85%",
         end: "top top",
         scrub: 1,
+        once: true,
+
       },
     });
 
@@ -88,7 +90,14 @@ function Intro() {
         start: "top top",
         end: () => `+=${window.innerHeight * 2.5}`,
         pin: true,
+        onEnterBack: (self) => {
+          const scroll = Math.min(self.scroll(), self.start);
+          self.kill();
+          self.scroll(scroll);
+          ScrollTrigger.refresh();
+        },
       });
+    
 
       const pauseTimeline = 
       gsap.timeline({
@@ -98,9 +107,10 @@ function Intro() {
           end: () => pausePin.end,
           scrub: true,
           once: true,
-          invalidateОnRefresh: true,
+          invalidateOnRefresh: true,
         },
       });
+
 
 
       // Keep the words joined briefly.
