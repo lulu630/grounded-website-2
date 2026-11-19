@@ -3,8 +3,8 @@ import { useLayoutEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-
 gsap.registerPlugin(ScrollTrigger);
+
 
 function Intro() {
   const sectionRef = useRef(null);
@@ -64,7 +64,8 @@ function Intro() {
         sectionRef.current.querySelector(".intro__description"),
         { opacity: 0, y: 32 },
         { opacity: 1, y: 0, duration: 1, ease: "none" }
-      );
+      )
+
 
       // Move PRESTASJON and PAUSE apart.
       const stage = sectionRef.current.querySelector(".intro__pause-stage");

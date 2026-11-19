@@ -919,12 +919,12 @@
 
 
 .footer__heading {
-  margin-bottom: 48px;
+  margin-bottom: 36px;
   font-family: "PP Mori", sans-serif;
-  font-size: clamp(20px, 2vw, 28px);
-  font-weight: 600;
+  font-size: clamp(20px, 2vw, 24px);
   line-height: 1.2;
-  text-transform: uppercase;
+  position: relative;
+  text-decoration: none;
 }
 
 
