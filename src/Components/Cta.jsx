@@ -5,16 +5,14 @@ import { useGSAP } from "@gsap/react";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
+function Cta() {
+  const sectionRef = useRef(null);
 
-function Cta() { 
-    const sectionRef = useRef(null);
+  useGSAP(() => {
+    if (
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches
+    ) return;
 
-    useGSAP(() => {
-        if (
-            window.matchMedia("(prefers-reduced-motion: reduce)").matches
-        ) return;
-
-        
     //     const timeline = gsap.timeline({
     //         scrollTrigger: {
     //         trigger: sectionRef.current,
@@ -25,105 +23,101 @@ function Cta() {
     //     },
     // });
 
+    const ctaPin = ScrollTrigger.create({
+      trigger: sectionRef.current,
+      start: "top top",
+      end: "+=180%",
+      pin: true,
+      onEnterBack: (self) => {
+        const scroll = Math.min(self.scroll(), self.start);
+        self.kill();
+        self.scroll(scroll);
+        ScrollTrigger.refresh();
+      },
+    });
 
-        const ctaPin = ScrollTrigger.create({
-            trigger: sectionRef.current,
-            start: "top top",
-            end: "+=180%",
-            pin: true,
-            onEnterBack: (self) => {
-                const scroll = Math.min(self.scroll(), self.start);
-                self.kill();
-                self.scroll(scroll);
-                ScrollTrigger.refresh();
-            },
-        });
-
-    
-        const timeline = gsap.timeline({
-        scrollTrigger: {
-            trigger: sectionRef.current,
-            start: () => ctaPin.start - window.innerHeight * 0.6,
-            end: () => ctaPin.end,
-            scrub: 1,
-            once: true,
-        },
-        });
-
+    const timeline = gsap.timeline({
+      scrollTrigger: {
+        trigger: sectionRef.current,
+        start: () => ctaPin.start - window.innerHeight * 0.6,
+        end: () => ctaPin.end,
+        scrub: 1,
+        once: true,
+      },
+    });
 
     // Reveal the words one after another
     timeline.from(".cta__word", {
-        autoAlpha: 0,
-        y: 50,
-        duration: 0.4,
-        stagger: 0.2,
-        ease: "none",
+      autoAlpha: 0,
+      y: 50,
+      duration: 0.4,
+      stagger: 0.2,
+      ease: "none",
     });
-
 
     // Reveal the description and link after the last word
     timeline.from(".cta__content", {
-        autoAlpha: 0,
-        y: 80,
-        duration: 0.6,
-        ease: "none",
+      autoAlpha: 0,
+      y: 80,
+      duration: 0.6,
+      ease: "none",
     });
 
     // Hold the completed CTA before the footer enters.
     timeline.to({}, {
-    duration: 0.5,
+      duration: 0.5,
 
     });
-    
-    }, { scope: sectionRef });
 
+  }, { scope: sectionRef });
 
-    return (
-        <section 
-        className="cta"
-        ref={sectionRef}
-        >
-            <div className="cta__content">
-                <p>Start med en uforpliktende samtale, så finner vi ut hva som passer for deg eller din bedrift.</p>
+  return (
+    <section
+      className="cta"
+      ref={sectionRef}
+    >
+      <div className="cta__content">
+        <p>Start med en uforpliktende samtale, så finner vi ut hva som passer for deg eller din bedrift.</p>
 
-                <a className="cta__link" href="#book-samtale">
-                    Book en samtale {" "}
-                    <svg
-                      className="cta__arrow"
-                      viewBox="0 0 42 16"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="1.5"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      aria-hidden="true"
-                      focusable="false"
-                    >
-                      <path className="cta__arrow-line" d="M0 8H24" />
-                      <path className="cta__arrow-head" d="M18 3L24 8L18 13" />
-                    </svg>
-                
-                </a>
-            </div>
+        <a className="cta__link" href="#book-samtale">
+          Book en samtale {" "}
+          <svg
+            className="cta__arrow"
+            viewBox="0 0 42 16"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            aria-hidden="true"
+            focusable="false"
+          >
+            <path className="cta__arrow-line" d="M0 8H24" />
+            <path className="cta__arrow-head" d="M18 3L24 8L18 13" />
+          </svg>
 
-            <h2 
-            className="cta__animation"
-            aria-label="Skap mer rom">
+        </a>
+      </div>
 
-                <span className="cta__word">
-                    Skap
-                </span>
+      <h2
+        className="cta__animation"
+        aria-label="Skap mer rom">
 
-                <span className="cta__word">
-                    mer
-                </span>
+        <span className="cta__word">
+          Skap
+        </span>
 
-                <span className="cta__word">
-                    rom
-                </span>
-            </h2>
+        <span className="cta__word">
+          mer
+        </span>
 
-        </section>
-        )}
+        <span className="cta__word">
+          rom
+        </span>
+      </h2>
+
+    </section>
+  )
+}
 
 export default Cta

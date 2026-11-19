@@ -5,7 +5,6 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
-
 function Intro() {
   const sectionRef = useRef(null);
 
@@ -27,30 +26,28 @@ function Intro() {
         },
       });
 
-
       gsap.to(scene.querySelector(".intro__scene-ending"), {
         y: -100,
         ease: "none",
         scrollTrigger: {
           trigger: scene,
           start: "top bottom",
-          end:"bottom top",
+          end: "bottom top",
           scrub: 1,
         }
 
       });
 
-
       const introTimeline = gsap.timeline({
         scrollTrigger: {
-        trigger: scene.querySelector(".intro__scene-ending"),
-        start: "top 85%",
-        end: "top top",
-        scrub: 1,
-        once: true,
+          trigger: scene.querySelector(".intro__scene-ending"),
+          start: "top 85%",
+          end: "top top",
+          scrub: 1,
+          once: true,
 
-      },
-    });
+        },
+      });
 
       // Draw the line.
       introTimeline.fromTo(
@@ -65,7 +62,6 @@ function Intro() {
         { opacity: 0, y: 32 },
         { opacity: 1, y: 0, duration: 1, ease: "none" }
       )
-
 
       // Move PRESTASJON and PAUSE apart.
       const stage = sectionRef.current.querySelector(".intro__pause-stage");
@@ -85,38 +81,34 @@ function Intro() {
       //   },
       // });
 
-      const pausePin = 
-      ScrollTrigger.create({
-        trigger: stage,
-        start: "top top",
-        end: () => `+=${window.innerHeight * 2.5}`,
-        pin: true,
-        onEnterBack: (self) => {
-          const scroll = Math.min(self.scroll(), self.start);
-          self.kill();
-          self.scroll(scroll);
-          ScrollTrigger.refresh();
-        },
-      });
-    
-
-      const pauseTimeline = 
-      gsap.timeline({
-        scrollTrigger: {
+      const pausePin =
+        ScrollTrigger.create({
           trigger: stage,
-          start: () => pausePin.start,
-          end: () => pausePin.end,
-          scrub: true,
-          once: true,
-          invalidateOnRefresh: true,
-        },
-      });
+          start: "top top",
+          end: () => `+=${window.innerHeight * 2.5}`,
+          pin: true,
+          onEnterBack: (self) => {
+            const scroll = Math.min(self.scroll(), self.start);
+            self.kill();
+            self.scroll(scroll);
+            ScrollTrigger.refresh();
+          },
+        });
 
-
+      const pauseTimeline =
+        gsap.timeline({
+          scrollTrigger: {
+            trigger: stage,
+            start: () => pausePin.start,
+            end: () => pausePin.end,
+            scrub: true,
+            once: true,
+            invalidateOnRefresh: true,
+          },
+        });
 
       // Keep the words joined briefly.
       pauseTimeline.to(words, { duration: 0.2 });
-
 
       // Move PRESTASJON beyond the left edge of the section.
       pauseTimeline.to(leftWord, {
@@ -138,7 +130,6 @@ function Intro() {
       // Hold the final message before the pinned section ends.
       pauseTimeline.to(message, { duration: 0.35 });
 
-
       pauseTimeline.set(words, { autoAlpha: 0 });
 
     }, sectionRef);
@@ -148,45 +139,44 @@ function Intro() {
 
   return (
     <section className="intro" ref={sectionRef} aria-label="Fra arbeidsdag til pause">
-        <svg width="0" height="0" aria-hidden="true">
-          <defs>
-            <clipPath id="intro-oval" clipPathUnits="objectBoundingBox">
-              <ellipse
-                cx="415.568"
-                cy="554.034"
-                rx="309.17"
-                ry="498.5145"
-                transform="scale(0.001204687 0.000803223) rotate(43.993 415.568 554.034)"
-                />
-            </clipPath>
-          </defs>
-        </svg>
-      
-      
+      <svg width="0" height="0" aria-hidden="true">
+        <defs>
+          <clipPath id="intro-oval" clipPathUnits="objectBoundingBox">
+            <ellipse
+              cx="415.568"
+              cy="554.034"
+              rx="309.17"
+              ry="498.5145"
+              transform="scale(0.001204687 0.000803223) rotate(43.993 415.568 554.034)"
+            />
+          </clipPath>
+        </defs>
+      </svg>
+
       <div className="intro__scene">
 
         <h2 className="intro__scene-opening">Arbeidsdagen <br /> kan være <span className="accent-italic">over</span>,</h2>
 
-      <div className="intro__window">
-        <div className="intro__photo">
-          <img 
-          className="intro__image"
-          src={introImage}
-          alt="En person sitter med hodet hvilende i armene"
-          />
+        <div className="intro__window">
+          <div className="intro__photo">
+            <img
+              className="intro__image"
+              src={introImage}
+              alt="En person sitter med hodet hvilende i armene"
+            />
+          </div>
         </div>
-      </div>
 
-      <h2 className="intro__scene-ending">
-        Men hodet <br />
-        <span className="intro__continuation">
-          fortsetter
-        <span
-          className="intro__continuation-line"
-          aria-hidden="true"
-        />
-        </span>
-      </h2>
+        <h2 className="intro__scene-ending">
+          Men hodet <br />
+          <span className="intro__continuation">
+            fortsetter
+            <span
+              className="intro__continuation-line"
+              aria-hidden="true"
+            />
+          </span>
+        </h2>
       </div>
 
       <div className="intro__block intro__block--description">
@@ -208,31 +198,30 @@ function Intro() {
             <br />
             og vær mer til stede i det som faktisk skjer.
           </p>
-          
+
           {/* <p className="intro__programs-arrow">Utforsk programmene ↓</p> */}
 
           <p className="intro__programs-arrow">
-          <span>Sjekk våre programmer</span>
+            <span>Sjekk våre programmer</span>
 
-  <svg
-    width="16"
-    height="52"
-    viewBox="0 0 16 52"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="3"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-    aria-hidden="true"
-    focusable="false"
-  >
-    <path d="M8 1V40M2 34L8 40L14 34" />
-  </svg>
-</p>
-        
-        
+            <svg
+              width="16"
+              height="52"
+              viewBox="0 0 16 52"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="3"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              aria-hidden="true"
+              focusable="false"
+            >
+              <path d="M8 1V40M2 34L8 40L14 34" />
+            </svg>
+          </p>
+
         </div>
-      
+
       </div>
     </section>
   );
