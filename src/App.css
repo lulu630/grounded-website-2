@@ -1,11 +1,9 @@
 /* Notes ------------ 
 
-- адаптивность
-- add possibility to pause hero-video
-- видимость синих кнопок улучшить. тенью???
+- адаптивность?
+- видимость синих кнопок улучшить. голубой?
 
 ------------ */
-
 
 /*------------ SHARED STYLES ------------ */
 
@@ -46,6 +44,7 @@
   font-size: var(--font-size-body);
   line-height: var(--line-height-body);
 }
+
 
 .hero__button,
 .services__link,
@@ -191,9 +190,9 @@
 }
 
 
-.site-header__link:hover {
+/* .site-header__link:hover {
   color: var(--accent);
-}
+} */
 
 
 .hero__button:hover {
@@ -224,7 +223,7 @@
   content: "";
   position: absolute;
   inset: 0;
-  background: rgb(0 0 0 / 40%);
+  background: rgb(0 0 0 / 55%);
   z-index: 1;
 }
 
@@ -262,6 +261,47 @@
   font-size: clamp(18px, 2vw, 28px);
   letter-spacing: 0.08em;
   line-height: 1.65;
+}
+
+
+.hero__video-toggle {
+  position: absolute;
+  bottom: 24px;
+  left: 24px;
+  z-index: 3;
+  min-height: 44px;
+  /* min-height сохраняет удобную область нажатия без создания видимой плашки */
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  appearance: none;
+  color: var(--text-on-dark);
+  font: inherit;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  max-width: calc(100% - 48px);
+}
+
+
+.hero__video-icon {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+
+
+.hero__video-toggle:hover {
+  background: none;
+  /* color: var(--accent); */
+}
+
+
+.hero__video-toggle:focus-visible {
+  outline: 2px solid var(--text-on-dark);
+  outline-offset: 4px;
 }
 
 
