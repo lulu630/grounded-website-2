@@ -130,6 +130,7 @@ function Services() {
                 className="services__link"
                 href="#"
                 onClick={(event) => event.preventDefault()}
+                aria-label={`Finn ut mer om ${service.title}`}
               >
                 Finn ut mer {" "}
                 <svg

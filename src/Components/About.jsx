@@ -65,6 +65,7 @@ function About() {
             className="about__link"
             href="#"
             onClick={(event) => event.preventDefault()}
+            aria-label="Finn ut mer om Grounded"
           >
             Finn ut mer {" "}
             <svg
