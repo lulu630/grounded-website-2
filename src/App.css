@@ -68,9 +68,9 @@
 }
 
 
-.hero__button:hover,
+/* .hero__button:hover, */
 .services__link:hover,
-.bedrifter__link:hover,
+/* .bedrifter__link:hover, */
 .about__link:hover,
 .cta__link:hover {
   color: var(--accent);
@@ -132,6 +132,7 @@
 .cta__link:hover .cta__arrow-head {
   transform: translateX(16px);
 }
+
 
 
 @media (max-width: 770px) {
