@@ -49,7 +49,7 @@ function About() {
           <img
             className="about__img"
             src={couch}
-            alt="red-haired woman in a feminine suit" />
+            alt="En rødhåret kvinne i dress" />
         </div>
 
         <div className="about__text">

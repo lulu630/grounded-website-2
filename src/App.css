@@ -75,13 +75,12 @@
 }
 
 
-/* .hero__button:hover, */
 .services__link:hover,
-/* .bedrifter__link:hover, */
 .about__link:hover,
 .cta__link:hover {
   color: var(--accent);
 }
+
 
 
 /* arrow */
@@ -175,7 +174,7 @@
 
 .site-header__link {
   color: var(--text-on-dark);
-  font-size: 24px;
+  font-size: 20px;
   font-weight: 400;
   position: relative;
   text-decoration: none;
@@ -255,18 +254,16 @@
 
 .hero__logo {
   text-transform: uppercase;
-  font-size: clamp(64px, 6vw, 120px);
+  font-size: clamp(48px, 5vw, 100px);
   font-family: "PP Mori", serif;
-  /* font-weight: 200; */
   line-height: 1.1;
-  /* letter-spacing: 0.08em; */
 }
 
 
 .hero__text {
   font-family: "Lunea", sans-serif;
   font-weight: 400;
-  font-size: clamp(18px, 2vw, 28px);
+  font-size: clamp(16px, 1.5vw, 24px);
   letter-spacing: 0.08em;
   line-height: 1.65;
 }

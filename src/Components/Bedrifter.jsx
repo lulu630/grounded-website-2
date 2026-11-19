@@ -132,7 +132,7 @@ function Bedrifter() {
         <img
           className="bedrifter__img"
           src={bedrifter}
-          alt="People sitting in a conference room" />
+          alt="Personer sitter rundt et møtebord" />
 
         <div
           className="bedrifter__overlay"
