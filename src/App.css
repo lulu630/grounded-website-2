@@ -7,6 +7,14 @@
 
 /*------------ SHARED STYLES ------------ */
 
+.site-header__link:hover,
+.hero__button:hover,
+.hero__video-toggle:hover,
+.bedrifter__link:hover {
+  color: var(--hover-on-dark);
+}
+
+
 .services__description,
 .about__text,
 .cta__content p {
