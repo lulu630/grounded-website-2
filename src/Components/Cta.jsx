@@ -9,66 +9,38 @@ function Cta() {
   const sectionRef = useRef(null);
 
   useGSAP(() => {
-    if (
-      window.matchMedia("(prefers-reduced-motion: reduce)").matches
-    ) return;
+    const media = gsap.matchMedia();
 
-    //     const timeline = gsap.timeline({
-    //         scrollTrigger: {
-    //         trigger: sectionRef.current,
-    //         start: "top top",
-    //         end: "+=180%",
-    //         scrub: 1,
-    //         pin: true,
-    //     },
-    // });
+    media.add("(prefers-reduced-motion: no-preference)", () => {
+      const blocks = gsap.utils.toArray(
+        ".cta__content, .cta__animation",
+        sectionRef.current
+      );
 
-    const ctaPin = ScrollTrigger.create({
-      trigger: sectionRef.current,
-      start: "top top",
-      end: "+=180%",
-      pin: true,
-      onEnterBack: (self) => {
-        const scroll = Math.min(self.scroll(), self.start);
-        self.kill();
-        self.scroll(scroll);
-        ScrollTrigger.refresh();
-      },
+      blocks.forEach((block) => {
+        const reveal = gsap.timeline({
+          scrollTrigger: {
+            trigger: block,
+            start: "top 85%",
+            once: true,
+          },
+        });
+
+        reveal.from(block, {
+          y: 30,
+          duration: 0.7,
+          ease: "power1.inOut",
+        }, 0);
+
+        reveal.from(block, {
+          opacity: 0,
+          duration: 0.9,
+          ease: "power1.inOut",
+        }, 0);
+      });
     });
 
-    const timeline = gsap.timeline({
-      scrollTrigger: {
-        trigger: sectionRef.current,
-        start: () => ctaPin.start - window.innerHeight * 0.6,
-        end: () => ctaPin.end,
-        scrub: 1,
-        once: true,
-      },
-    });
-
-    // Reveal the words one after another
-    timeline.from(".cta__word", {
-      autoAlpha: 0,
-      y: 50,
-      duration: 0.4,
-      stagger: 0.2,
-      ease: "none",
-    });
-
-    // Reveal the description and link after the last word
-    timeline.from(".cta__content", {
-      autoAlpha: 0,
-      y: 80,
-      duration: 0.6,
-      ease: "none",
-    });
-
-    // Hold the completed CTA before the footer enters.
-    timeline.to({}, {
-      duration: 0.5,
-
-    });
-
+    return () => media.revert();
   }, { scope: sectionRef });
 
   return (
