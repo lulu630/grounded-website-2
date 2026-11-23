@@ -36,7 +36,8 @@
   );
   --text: rgb(64, 61, 57);
   --text-on-dark: rgb(250 250 250);
-  --hover-on-dark: rgb(213, 211, 211);
+  /* --hover-on-dark: rgb(213, 211, 211); */
+  --hover-on-dark: rgb(175 205 255);
   --accent: rgb(40 69 133);
   --titles: rgb(40 69 133);
   --footer-logo: rgb(67 47 35 / 16%);

@@ -10,7 +10,8 @@
 .site-header__link:hover,
 .hero__button:hover,
 .hero__video-toggle:hover,
-.bedrifter__link:hover {
+.bedrifter__link:hover,
+.hero__video-toggle:hover span {
   color: var(--hover-on-dark);
 }
 
@@ -80,7 +81,6 @@
 .cta__link:hover {
   color: var(--accent);
 }
-
 
 
 /* arrow */
@@ -157,7 +157,7 @@
 
 .site-header{
   position: absolute;
-  top: 0;
+  top: 20px;
   left: 0;
   z-index: 3;
   height: 58px;
@@ -168,7 +168,6 @@
   padding-inline: 8%;
   white-space: nowrap;
   gap: 29px;
-
 }
 
 
@@ -188,7 +187,6 @@
   max-width: 590px;
   justify-content: space-between;
   gap: 2.5rem;
-
 }
 
 
@@ -230,7 +228,7 @@
   content: "";
   position: absolute;
   inset: 0;
-  background: rgb(0 0 0 / 55%);
+  background: rgb(0 0 0 / 65%);
   z-index: 1;
 }
 
