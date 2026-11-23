@@ -7,6 +7,12 @@
 
 /*------------ SHARED STYLES ------------ */
 
+.intro,
+.about,
+.cta {
+  padding-block: var(--section-space);
+}
+
 .site-header__link:hover,
 .hero__button:hover,
 .hero__video-toggle:hover,
@@ -395,21 +401,24 @@
 /*------------ INTRO SECTION ------------ */
 
 .intro {
-  min-height: 100svh;
+  /* min-height: 80svh; */
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 48px;
-  padding: 72px 6%;
+  padding-inline: 6%;
   color: var(--text);
   text-align: center;
-  font-size: clamp(21px, 3.2vw, 46px);
+  font-size: clamp(18px, 2.2vw, 30px);
+  
   line-height: 1.65;
 }
 
 .intro__block {
   width: 100%;
+  max-width: 950px;
+
 }
 
 .intro__message {
@@ -430,7 +439,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   column-gap: 10%;
-  padding-inline: 7.4% 4.8%;
+  padding-inline: 6%;
   color: var(--text);
 }
 
@@ -680,8 +689,9 @@
 /*------------ ABOUT SECTION ------------*/
 
 .about {
-  padding-block: clamp(48px, 6vw, 96px);
-  padding-inline: 24px;
+  /* padding-block: clamp(48px, 6vw, 96px); */
+  /* padding-inline: 24px; */
+  padding-inline: 6%;
   position: relative;
   overflow: hidden;
   isolation: isolate;
@@ -742,12 +752,11 @@
 /*------------ CTA SECTION ------------*/
 
 .cta {
-  min-height: 100svh;
+  /* min-height: 80svh; */
   display: grid;
   grid-template-columns: 1.1fr 1fr;
   align-items: center;
   gap: 8%;
-  padding: 80px 8%;
   color: var(--text);
 }
 

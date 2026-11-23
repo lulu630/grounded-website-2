@@ -1,48 +1,8 @@
-import { useRef } from "react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useGSAP } from "@gsap/react";
-
-gsap.registerPlugin(ScrollTrigger, useGSAP);
-
 import couch from "../assets/images/couch.webp"
 
 function About() {
-
-  const sectionRef = useRef(null);
-
-  useGSAP(() => {
-    const media = gsap.matchMedia();
-
-    media.add(
-      "(min-width: 771px) and (prefers-reduced-motion: no-preference)",
-      () => {
-        const content = sectionRef.current.querySelector(".about__content");
-
-        ScrollTrigger.create({
-          trigger: content,
-          start: "center 65%",
-          end: "center 35%",
-          // snap: {
-          //   snapTo: (progress) =>
-          //     content.offsetHeight > window.innerHeight ? progress : 0.5,
-          //   directional: false,
-          //   inertia: false,
-          //   delay: 0.15,
-          //   duration: 0.4,
-          //   ease: "power1.inOut",
-          // },
-        });
-      }
-    );
-
-    return () => media.revert();
-  }, { scope: sectionRef });
-
   return (
-    <section
-      className="about"
-      ref={sectionRef}>
+    <section className="about">
 
       <div className="about__content">
         <div className="about__window">
