@@ -26,6 +26,7 @@
 
 :root {
   --bg: rgb(255 252 242);
+  --bg-transparent: rgb(255 252 242 / 75%);
   --page-gradient: linear-gradient(
     135deg,
     rgb(246 240 231) 0%,

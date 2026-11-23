@@ -181,7 +181,7 @@ function Intro() {
 
       <div className="intro__block intro__block--description">
         <p className="intro__text intro__description">
-          Beslutninger og ansvar blir ofte med videre inn i kvelden.
+          Beslutninger og ansvar blir ofte med videre inn i kvelden. 
           <br />
           Det kan være vanskelig å finne en tydelig overgang mellom prestasjon og pause.
         </p>
