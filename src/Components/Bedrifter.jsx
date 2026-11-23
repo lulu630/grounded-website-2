@@ -16,7 +16,7 @@ function Bedrifter() {
     const bedrifterPin = ScrollTrigger.create({
       trigger: section,
       start: "top top",
-      end: "+=210%",
+      end: "+=150%",
       pin: true,
 
       onEnterBack: (self) => {
@@ -85,9 +85,9 @@ function Bedrifter() {
     }, 0.5);
 
     // Hold the completed scene before releasing the pinned section.
-    timeline.to({}, {
-      duration: 0.4,
-    });
+    // timeline.to({}, {
+    //   duration: 0.4,
+    // });
 
     return () => {
       section.classList.remove("bedrifter--complete");

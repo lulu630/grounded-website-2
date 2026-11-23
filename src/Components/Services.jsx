@@ -40,30 +40,27 @@ function Services() {
       const images = sectionRef.current.querySelectorAll(".services__window-image");
 
       const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
-      let activeIndex = -1;
+      let activeIndex = 0;
+      gsap.set(images, { autoAlpha: (index) => index === 0 ? 1 : 0 });
 
-      // Switch photos immediately, then gently settle the new photo into place.
+      // Crossfade the photos without changing their size or position.
       function showImage(index) {
         if (index === activeIndex) return;
         activeIndex = index;
-        gsap.killTweensOf(images);
-        gsap.set(images, { visibility: "hidden", scale: 1 });
-        gsap.set(images[index], { visibility: "visible", scale: 1.03 });
-        gsap.to(images[index], {
-          scale: 1,
-          duration: reducedMotion.matches ? 0 : 0.7,
-          ease: "power2.out",
+        gsap.to(images, {
+          autoAlpha: (imageIndex) => imageIndex === index ? 1 : 0,
+          duration: reducedMotion.matches ? 0 : 0.6,
+          ease: "power1.inOut",
           overwrite: true,
         });
       }
 
-      showImage(0);
-      let snapPoints = [];
+      let cardPositions = [];
       function updateImage(self) {
-        if (!snapPoints.length) return;
+        if (!cardPositions.length) return;
 
-        const closest = gsap.utils.snap(snapPoints, self.progress);
-        showImage(snapPoints.indexOf(closest));
+        const closest = gsap.utils.snap(cardPositions, self.progress);
+        showImage(cardPositions.indexOf(closest));
       }
 
       ScrollTrigger.create({
@@ -71,15 +68,6 @@ function Services() {
         start: "center center",
         endTrigger: cards[cards.length - 1],
         end: "center center",
-
-        snap: reducedMotion.matches ? false : {
-          snapTo: (progress) => gsap.utils.snap(snapPoints, progress),
-          directional: false,
-          inertia: false,
-          delay: 0.15,
-          duration: 0.4,
-          ease: "power1.inOut",
-        },
 
         // Recalculate card centers when the layout changes.
         onRefresh: (self) => {
@@ -89,7 +77,7 @@ function Services() {
 
           const distance = centers[centers.length - 1] - centers[0];
 
-          snapPoints = centers.map(
+          cardPositions = centers.map(
             (center) => (center - centers[0]) / distance
           );
 
@@ -105,7 +93,7 @@ function Services() {
         gsap.killTweensOf(images);
         images.forEach((image) => {
           image.style.removeProperty("visibility");
-          image.style.removeProperty("transform");
+          image.style.removeProperty("opacity");
         });
       };
     }, sectionRef);

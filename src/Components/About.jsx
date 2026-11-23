@@ -23,15 +23,15 @@ function About() {
           trigger: content,
           start: "center 65%",
           end: "center 35%",
-          snap: {
-            snapTo: (progress) =>
-              content.offsetHeight > window.innerHeight ? progress : 0.5,
-            directional: false,
-            inertia: false,
-            delay: 0.15,
-            duration: 0.4,
-            ease: "power1.inOut",
-          },
+          // snap: {
+          //   snapTo: (progress) =>
+          //     content.offsetHeight > window.innerHeight ? progress : 0.5,
+          //   directional: false,
+          //   inertia: false,
+          //   delay: 0.15,
+          //   duration: 0.4,
+          //   ease: "power1.inOut",
+          // },
         });
       }
     );
