@@ -11,24 +11,12 @@ function Bedrifter() {
   const imageRef = useRef(null);
 
   useGSAP(() => {
-
-    // const timeline = gsap.timeline({
-
-    //     scrollTrigger: {
-    //         trigger: sectionRef.current,
-    //         start: "top top",
-    //         end: "+=310%",
-    //         scrub: 1,
-    //         pin: true,
-    //     },
-    // });
-
     const section = sectionRef.current;
 
     const bedrifterPin = ScrollTrigger.create({
       trigger: section,
       start: "top top",
-      end: "+=310%",
+      end: "+=210%",
       pin: true,
 
       onEnterBack: (self) => {
@@ -100,19 +88,6 @@ function Bedrifter() {
     timeline.to({}, {
       duration: 0.4,
     });
-
-    // Keep Bedrifter pinned while About slides over it.
-    timeline.to({}, {
-      duration: 0.67,
-
-    });
-
-    // Move the content upward while About slides over Bedrifter.
-    // timeline.to(".bedrifter__content", {
-    //     y: () => -window.innerHeight,
-    //     duration: 0.67,
-    //     ease: "power1.in",
-    // });
 
     return () => {
       section.classList.remove("bedrifter--complete");
