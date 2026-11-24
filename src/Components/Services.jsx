@@ -98,6 +98,35 @@ function Services() {
       };
     }, sectionRef);
 
+    // Reveal each text block as its card scrolls into view.
+    media.add("(prefers-reduced-motion: no-preference)", () => {
+      const cards = sectionRef.current.querySelectorAll(".services__card");
+
+      cards.forEach((card) => {
+        const content = card.querySelector(".services__card-content");
+
+        const reveal = gsap.timeline({
+          scrollTrigger: {
+            trigger: content,
+            start: "top 85%",
+            once: true,
+          },
+        });
+
+        reveal.from(content, {
+          y: 30,
+          duration: 0.7,
+          ease: "power1.inOut",
+        }, 0);
+
+        reveal.from(content, {
+          opacity: 0,
+          duration: 0.9,
+          ease: "power1.inOut",
+        }, 0);
+      });
+    }, sectionRef);
+
     const refresh = () => {
       if (sectionRef.current) ScrollTrigger.refresh();
     };

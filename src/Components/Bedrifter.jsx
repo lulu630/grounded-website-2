@@ -12,6 +12,39 @@ function Bedrifter() {
 
   useGSAP(() => {
     const section = sectionRef.current;
+    const content = section.querySelector(".bedrifter__content");
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+    let hasRevealed = false;
+
+    // Match the timed text reveal used in Intro, Services and CTA.
+    const contentReveal = gsap.timeline({ paused: true });
+
+    contentReveal.fromTo(content, {
+      y: 30,
+    }, {
+      y: 0,
+      duration: 0.7,
+      ease: "power1.inOut",
+    }, 0);
+
+    contentReveal.fromTo(content, {
+      autoAlpha: 0,
+    }, {
+      autoAlpha: 1,
+      duration: 0.9,
+      ease: "power1.inOut",
+    }, 0);
+
+    function revealContent() {
+      if (hasRevealed) return;
+      hasRevealed = true;
+
+      if (reducedMotion.matches) {
+        contentReveal.progress(1).pause();
+      } else {
+        contentReveal.play();
+      }
+    }
 
     const bedrifterPin = ScrollTrigger.create({
       trigger: section,
@@ -28,6 +61,8 @@ function Bedrifter() {
         // Finish any remaining animation before changing the layout.
         gsap.killTweensOf(timeline);
         timeline.progress(1).pause();
+        contentReveal.progress(1).pause();
+        hasRevealed = true;
 
         self.kill();
         section.classList.add("bedrifter--complete");
@@ -68,26 +103,14 @@ function Bedrifter() {
       ease: "none",
     }, 0);
 
-    timeline.fromTo(".bedrifter__content", {
-      autoAlpha: 0,
-      y: 80,
-    }, {
-      autoAlpha: 1,
-      y: 0,
-      duration: 0.5,
-      ease: "none",
-    }, 0.5);
+    // Start the text reveal when the photo reaches the same stage as before.
+    timeline.call(revealContent, [], 0.5);
 
     timeline.to(".bedrifter__overlay", {
       opacity: 0.5,
       duration: 0.5,
       ease: "none",
     }, 0.5);
-
-    // Hold the completed scene before releasing the pinned section.
-    // timeline.to({}, {
-    //   duration: 0.4,
-    // });
 
     return () => {
       section.classList.remove("bedrifter--complete");
