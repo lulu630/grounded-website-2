@@ -13,7 +13,7 @@ function Cta() {
 
     media.add("(prefers-reduced-motion: no-preference)", () => {
       const blocks = gsap.utils.toArray(
-        ".cta__content, .cta__animation",
+        ".cta__content",
         sectionRef.current
       );
 
@@ -49,6 +49,9 @@ function Cta() {
       ref={sectionRef}
     >
       <div className="cta__content">
+
+        <h2 className="cta__title">Skap mer rom.</h2>
+
         <p>Start med en uforpliktende samtale, så finner vi ut hva som passer for deg eller din bedrift.</p>
 
         <a className="cta__link" href="#book-samtale">
@@ -70,23 +73,6 @@ function Cta() {
 
         </a>
       </div>
-
-      <h2
-        className="cta__animation"
-        aria-label="Skap mer rom">
-
-        <span className="cta__word">
-          Skap
-        </span>
-
-        <span className="cta__word">
-          mer
-        </span>
-
-        <span className="cta__word">
-          rom
-        </span>
-      </h2>
 
     </section>
   )

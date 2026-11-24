@@ -703,7 +703,7 @@
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   margin-inline: auto;
-  gap: clamp(32px, 6vw, 80px);
+  gap: clamp(35px, 8vw, 85px);
   align-items: start;
 }
 
@@ -748,74 +748,32 @@
 }
 
 
-
 /*------------ CTA SECTION ------------*/
 
 .cta {
-  /* min-height: 80svh; */
-  display: grid;
-  grid-template-columns: 1.1fr 1fr;
-  align-items: center;
-  gap: 8%;
+  padding-inline: 6%;
   color: var(--text);
 }
 
-
 .cta__content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 30px;
-  text-align: center;
-}
-
-
-.cta__animation {
+  max-width: 720px;
+  margin-inline: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 24px;
-  font-family: "PP Mori", sans-serif;
-  font-size: clamp(30px, 8.5vw, 108px);
-  font-weight: 600;
-  line-height: 1.2;
-  text-transform: uppercase;
-  
+  text-align: center;
 }
 
-
-.cta__word {
-  display: block;
+.cta__link {
+  margin-top: 16px;
 }
-
 
 @media (max-width: 770px) {
-  .cta {
-    grid-template-columns: 1fr;
-    gap: 48px;
-    padding: 64px 24px;
-  }
-
-  .cta__animation {
-    grid-row: 1;
-    font-size: 64px;
-    gap: 12px;
-  }
-
-  .cta__content {
-    gap: 36px;
-  }
-
-  .cta__content p {
-    font-size: 22px;
-    line-height: 1.7;
-  }
-
-  .cta__link {
-    font-size: 20px;
+  .cta__title {
+    font-size: clamp(30px, 7vw, 42px);
   }
 }
-
 
 
 /*------------ FOOTER SECTION ------------ */
@@ -966,6 +924,81 @@
 
   .footer__legal {
     gap: 20px;
+  }
+}
+
+/* Tablet: keep the service image from becoming too tall */
+@media (min-width: 771px) and (max-width: 1024px) {
+  .services__window {
+    height: auto;
+    aspect-ratio: 4 / 5;
+    max-height: 74svh;
+  }
+}
+
+/* Mobile layout. */
+@media (max-width: 770px) {
+  .services__title,
+  .bedrifter__title,
+  .about__title {
+    font-size: clamp(30px, 7vw, 42px);
+  }
+
+  /* About: place the photo above the text */
+  .about {
+    min-height: auto;
+  }
+
+  .about__content {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 32px;
+  }
+
+  .about__window {
+    width: min(100%, 420px);
+    justify-self: center;
+  }
+
+  .about__text {
+    min-width: 0;
+    max-width: none;
+  }
+
+  /* Bedrifter: widen the initial photo */
+  .bedrifter .img__window {
+    width: min(80%, 440px);
+    height: min(55svh, 500px);
+  }
+
+  /* Services: use consistent photo proportions */
+  .services__card {
+    min-height: auto;
+  }
+
+  .services__mobile-image {
+    height: auto;
+    aspect-ratio: 4 / 5;
+    max-width: 480px;
+    align-self: center;
+  }
+
+  /* Footer: remove stacked padding and oversized links */
+  .footer {
+    gap: 32px;
+    padding: 0;
+  }
+
+  .footer__cover {
+    padding: 48px 6% 32px;
+  }
+
+  .footer__links {
+    font-size: 14px;
+  }
+
+  .footer__bottom {
+    padding: 24px 6%;
+    font-size: 13px;
   }
 }
 
