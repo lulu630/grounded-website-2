@@ -1,9 +1,14 @@
 /* Notes ------------ 
 
-- адаптивность?
-- видимость синих кнопок улучшить. голубой?
+- адаптивность hero
+- new display font?
+- new footer
+- bg to bedrifter? 
+- arrow clickable area
+- bedrifter text anmation backscroll fix
 
 ------------ */
+
 
 /*------------ SHARED STYLES ------------ */
 
@@ -13,12 +18,17 @@
   padding-block: var(--section-space);
 }
 
-.site-header__link:hover,
-.hero__button:hover,
-.hero__video-toggle:hover,
-.bedrifter__link:hover,
-.hero__video-toggle:hover span {
+
+/* .bedrifter__link:hover{
   color: var(--hover-on-dark);
+} */
+
+.site-header__link:hover,
+/* .hero__button:hover, */
+.services__link:hover,
+.about__link:hover,
+.cta__link:hover {
+  color: var(--accent);
 }
 
 
@@ -80,11 +90,6 @@
 }
 
 
-.services__link:hover,
-.about__link:hover,
-.cta__link:hover {
-  color: var(--accent);
-}
 
 
 /* arrow */
@@ -164,7 +169,7 @@
   top: 20px;
   left: 0;
   z-index: 3;
-  height: 58px;
+  height: 68px;
   width: 100%;
   display: flex;
   align-items: center;
@@ -190,7 +195,7 @@
   width: 100%;
   max-width: 590px;
   justify-content: space-between;
-  gap: 2.5rem;
+  gap: clamp(16px, 2.5vw, 40px);
 }
 
 
@@ -266,6 +271,7 @@
   .site-header__nav .site-header__link:hover {
     color: var(--accent);
   }
+
 }
 
 
@@ -285,22 +291,13 @@
 }
 
 
-.hero-video {
+.hero__image {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
   z-index: 0;
-}
-
-
-.hero::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgb(0 0 0 / 65%);
-  z-index: 1;
 }
 
 
@@ -311,18 +308,32 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
-  width: 42%;
-  margin-left: auto;
+  align-items: flex-start;
+  width: 54%;
+  margin-left: 0;
   min-height: 100vh;
   gap: 24px;
-  text-align: center;
-  padding: 110px 4% 40px 0;
+  text-align: left;
+  padding: 110px 0% 40px 12%;
 }
 
 
-.hero__logo {
+.site-header__logo {
+  margin-right: auto;
+  flex-shrink: 0;
+  font-family: "PP Mori", sans-serif;
+  font-size: clamp(22px, 2vw, 30px);
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: 0.04em;
   text-transform: uppercase;
+  color: var(--text-on-dark);
+  text-decoration: none;
+}
+
+
+.hero__title {
+  /* text-transform: uppercase; */
   font-size: clamp(48px, 5vw, 100px);
   font-family: "PP Mori", serif;
   line-height: 1.1;
@@ -335,47 +346,6 @@
   font-size: clamp(16px, 1.5vw, 24px);
   letter-spacing: 0.08em;
   line-height: 1.65;
-}
-
-
-.hero__video-toggle {
-  position: absolute;
-  bottom: 24px;
-  left: 24px;
-  z-index: 3;
-  min-height: 44px;
-  /* min-height сохраняет удобную область нажатия без создания видимой плашки */
-  padding: 0;
-  border: 0;
-  border-radius: 0;
-  background: transparent;
-  appearance: none;
-  color: var(--text-on-dark);
-  font: inherit;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  max-width: calc(100% - 48px);
-}
-
-
-.hero__video-icon {
-  width: 20px;
-  height: 20px;
-  flex-shrink: 0;
-}
-
-
-.hero__video-toggle:hover {
-  background: none;
-  /* color: var(--accent); */
-}
-
-
-.hero__video-toggle:focus-visible {
-  outline: 2px solid var(--text-on-dark);
-  outline-offset: 4px;
 }
 
 
@@ -392,9 +362,59 @@
     font-size: 13px;
   }
 
+  .site-header__logo,
+  .site-header__toggle {
+    color: var(--text-on-dark);
+  }
+
+  .hero {
+    min-height: 100svh;
+    isolation: isolate;
+  }
+
+  .hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    background: linear-gradient(
+      180deg,
+      rgb(0 0 0 / 45%) 0%,
+      rgb(0 0 0 / 25%) 20%,
+      rgb(0 0 0 / 8%) 30%,
+      rgb(0 0 0 / 8%) 40%,
+      rgb(0 0 0 / 70%) 65%,
+      rgb(0 0 0 / 75%) 100%
+    );
+  }
+
   .hero__content {
     width: 100%;
-    padding: 110px 20px 40px;
+    min-height: 100svh;
+    justify-content: flex-start;
+    gap: 20px;
+    padding: 88px 6% 32px;
+    color: var(--text-on-dark);
+  }
+
+  .hero__title {
+    font-size: clamp(30px, 8vw, 42px);
+  }
+
+  .hero__text {
+    margin-top: auto;
+    font-family: inherit;
+    letter-spacing: normal;
+    line-height: 1.6;
+  }
+
+  .hero__button {
+    margin-top: 8px;
+  }
+
+  .hero__image {
+    object-position: 90% center;
   }
 }
 
@@ -571,6 +591,7 @@
 }
 
 
+
 .bedrifter__title {
   position: absolute;
   top: 3px;
@@ -628,11 +649,11 @@
 
 
 .bedrifter__content p {
-  max-width: 850px;
+  max-width: 890px;
   color: var(--text-on-dark);
   font-size: clamp(21px, 3.2vw, 46px);
   line-height: 1.65;
-  text-shadow: 0 2px 8px rgb(0 0 0 / 55%);
+  /* text-shadow: 0 2px 8px rgb(0 0 0 / 55%); */
 }
 
 

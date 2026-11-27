@@ -25,6 +25,8 @@ function Navbar() {
 
   return (
     <header className="site-header">
+      <a className="site-header__logo" href="#home" onClick={handleLinkClick}>Grounded</a>
+
       <button
         className="site-header__toggle"
         type="button"

@@ -48,9 +48,9 @@ function Footer() {
 
       </div>
 
-      <div className="footer__logo">
+      {/* <div className="footer__logo">
         <span className="footer__logo-text">GROUNDED</span>
-      </div>
+      </div> */}
 
       <div className="footer__bottom">
         <p>© {new Date().getFullYear()} Grounded</p>
